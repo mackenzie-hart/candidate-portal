@@ -236,24 +236,40 @@ ${renderInfoBlocks(section.blocks)}
     </section>`;
 }
 
-function renderCustomSection(entry) {
+function renderCustomSection(entry, sectionKey = '') {
   const domId = `custom-${entry.id}`;
+  const editable = buildOptions.editable && sectionKey;
   const intro = entry.intro
-    ? `      <p class="section-intro">${entry.intro}</p>\n`
+    ? `      <p class="section-intro">${editable ? eText(`${sectionKey}.intro`, entry.intro) : entry.intro}</p>\n`
     : '';
   const blocks = entry.blocks || [];
   let body;
   if (blocks.length) {
-    const cards = blocks.map((b) => renderTipCardFromBlock(b)).join('\n');
+    const cards = blocks
+      .map((b, i) => {
+        if (!editable) return renderTipCardFromBlock(b);
+        const title = eText(`${sectionKey}.blocks.${i}.title`, b.title || '');
+        const bodyHtml = eParagraphs(`${sectionKey}.blocks.${i}.paragraphs`, b.paragraphs);
+        const iconHtml = b.icon
+          ? `          <span class="tip-card-icon" aria-hidden="true">${renderTipIcon(b.icon)}</span>\n`
+          : '';
+        return `        <div class="card tip-card">
+${iconHtml}          <h3>${title}</h3>
+          <div class="tip-body">${bodyHtml}</div>
+        </div>`;
+      })
+      .join('\n');
     body = `      <div class="tips-grid">
 ${cards}
       </div>`;
   } else {
-    body = entry.bodyHtml ? `      <p>${entry.bodyHtml}</p>` : '';
+    body = entry.bodyHtml
+      ? `      <p>${editable ? eHtml(`${sectionKey}.bodyHtml`, entry.bodyHtml) : entry.bodyHtml}</p>`
+      : '';
   }
   return `
     <section id="${domId}"${sectionStyleAttr(entry)}>
-      <h2>${esc(entry.heading)}</h2>
+      <h2>${editable ? eText(`${sectionKey}.heading`, entry.heading || '') : esc(entry.heading)}</h2>
 ${intro}${body}
     </section>`;
 }
@@ -321,37 +337,51 @@ ${steps}
 function renderFaqSection(faqs) {
   if (!faqs?.items?.length) return '';
   const items = faqs.items
-    .map(
-      (f) => `      <details class="faq-item">
-        <summary>${esc(f.question)}</summary>
-        <p>${f.answer}</p>
-      </details>`
-    )
+    .map((f, i) => {
+      const question =
+        buildOptions.editable
+          ? eText(`faqs.items.${i}.question`, f.question || '')
+          : esc(f.question);
+      const answer =
+        buildOptions.editable ? eHtml(`faqs.items.${i}.answer`, f.answer || '') : f.answer;
+      return `      <details class="faq-item">
+        <summary>${question}</summary>
+        <p>${answer}</p>
+      </details>`;
+    })
     .join('\n');
   return `
     <section id="faq"${sectionStyleAttr(faqs)}>
-      <h2>${esc(faqs.heading)}</h2>
+      <h2>${sectionHeading('faqs.heading', faqs.heading)}</h2>
       <div class="faq-plain">
 ${items}
       </div>
     </section>`;
 }
 
-function buildIndex(data) {
+function buildIndex(data, options = {}) {
+  buildOptions = { editable: !!options.editable };
+
   const prepItems = data.prepare.steps
-    .map(
-      (s, i) => `        <div class="prep-step">
+    .map((s, i) => {
+      const title =
+        buildOptions.editable
+          ? eText(`prepare.steps.${i}.title`, s.title || '')
+          : esc(s.title);
+      const body =
+        buildOptions.editable ? eHtml(`prepare.steps.${i}.body`, s.body || '') : s.body;
+      return `        <div class="prep-step">
           <div class="prep-step-header">
             <span class="prep-badge"><span class="badge-num">${i + 1}</span></span>
-            <h3>${esc(s.title)}</h3>
+            <h3>${title}</h3>
           </div>
-          <div class="rich-body">${s.body}</div>
-        </div>`
-    )
+          <div class="rich-body">${body}</div>
+        </div>`;
+    })
     .join('\n');
 
   const locationCards = data.locations.items
-    .map((l) => {
+    .map((l, i) => {
       const hasImage = !!l.imageUrl;
       const photoInner = hasImage
         ? `<img src="${esc(l.imageUrl)}" alt="${esc(l.imageAlt || l.title)}" />`
@@ -363,26 +393,41 @@ function buildIndex(data) {
         : `          <div class="location-photo-card">
             <div class="photo-placeholder photo-placeholder--soft" aria-hidden="true"></div>
           </div>`;
+      const title =
+        buildOptions.editable
+          ? eText(`locations.items.${i}.title`, l.title || '')
+          : esc(l.title);
       return `        <a class="location-item" href="locations/${esc(l.slug)}.html">
 ${photoBlock}
-          <h3>${esc(l.title)}</h3>
+          <h3>${title}</h3>
         </a>`;
     })
     .join('\n');
 
   const linkCards = (data.links?.items || [])
-    .map(
-      (l) => `        <a class="card resource-card tip-card" href="${esc(l.url)}" target="_blank" rel="noopener">
+    .map((l, i) => {
+      const title =
+        buildOptions.editable
+          ? eText(`links.items.${i}.title`, l.title || '')
+          : esc(l.title);
+      const description =
+        buildOptions.editable
+          ? eText(`links.items.${i}.description`, l.description || '')
+          : esc(l.description);
+      return `        <a class="card resource-card tip-card" href="${esc(l.url)}" target="_blank" rel="noopener">
           <span class="tip-card-icon" aria-hidden="true">${renderAssetIcon(l.icon)}</span>
-          <h3>${esc(l.title)}</h3>
-          <div class="tip-body"><p>${esc(l.description)}</p></div>
-        </a>`
-    )
+          <h3>${title}</h3>
+          <div class="tip-body"><p>${description}</p></div>
+        </a>`;
+    })
     .join('\n');
 
   const sectionOrder = getIndexSectionOrder(data);
   const navLinks = buildIndexNav(sectionOrder, data);
   const customById = Object.fromEntries(getIndexCustomSections(data).map((s) => [customSectionId(s), s]));
+  const customSectionKeyById = Object.fromEntries(
+    (data.customSections || []).map((s, i) => [customSectionId(s), `customSections.${i}`])
+  );
 
   const welcomePhoto = data.welcome?.imageUrl
     ? `        <div class="about-photo">
@@ -395,11 +440,11 @@ ${photoBlock}
     <section id="welcome"${sectionStyleAttr(data.welcome)}>
       <div class="about-grid">
         <div>
-          <h2>${esc(data.welcome.heading)}</h2>
+          <h2>${sectionHeading('welcome.heading', data.welcome.heading)}</h2>
           <p class="section-intro">
-            ${data.welcome.intro}
+            ${buildOptions.editable ? eText('welcome.intro', data.welcome.intro || '') : data.welcome.intro}
           </p>
-          <a class="btn" href="${esc(data.welcome.buttonUrl)}" target="_blank" rel="noopener noreferrer">${esc(data.welcome.buttonText)}</a>
+          <a class="btn" href="${esc(data.welcome.buttonUrl)}" target="_blank" rel="noopener noreferrer">${buildOptions.editable ? eText('welcome.buttonText', data.welcome.buttonText || '') : esc(data.welcome.buttonText)}</a>
         </div>
 ${welcomePhoto}
       </div>
@@ -407,7 +452,7 @@ ${welcomePhoto}
 
     prepare: `
     <section id="prepare"${sectionStyleAttr(data.prepare)}>
-      <h2>${esc(data.prepare.heading)}</h2>
+      <h2>${sectionHeading('prepare.heading', data.prepare.heading)}</h2>
       <div class="prep-grid">
 ${prepItems}
       </div>
@@ -415,8 +460,8 @@ ${prepItems}
 
     links: `
     <section id="links"${sectionStyleAttr(data.links)}>
-      <h2>${esc(data.links.heading)}</h2>
-      <p class="section-intro">${esc(data.links.intro)}</p>
+      <h2>${sectionHeading('links.heading', data.links.heading)}</h2>
+      <p class="section-intro">${buildOptions.editable ? eText('links.intro', data.links.intro || '') : esc(data.links.intro)}</p>
       <div class="tips-grid links-grid">
 ${linkCards}
       </div>
@@ -424,7 +469,7 @@ ${linkCards}
 
     locations: `
     <section id="locations"${sectionStyleAttr(data.locations)}>
-      <h2>${esc(data.locations.heading)}</h2>
+      <h2>${sectionHeading('locations.heading', data.locations.heading)}</h2>
       <div class="locations-photo-grid">
 ${locationCards}
       </div>
@@ -434,17 +479,17 @@ ${locationCards}
 
     contact: `
     <section id="contact"${sectionStyleAttr(data.contact)}>
-      <h2>${esc(data.contact.heading)}</h2>
+      <h2>${sectionHeading('contact.heading', data.contact.heading)}</h2>
       <p class="section-intro">
-        ${data.contact.body}
+        ${buildOptions.editable ? eText('contact.body', data.contact.body || '') : data.contact.body}
       </p>
-      <a class="btn" href="mailto:${esc(data.contact.email)}">${esc(data.contact.buttonText)}</a>
+      <a class="btn" href="mailto:${esc(data.contact.email)}">${buildOptions.editable ? eText('contact.buttonText', data.contact.buttonText || '') : esc(data.contact.buttonText)}</a>
     </section>`,
   };
 
   const mainSections = sectionOrder
     .map((id) => {
-      if (id.startsWith('custom:')) return renderCustomSection(customById[id] || {});
+      if (id.startsWith('custom:')) return renderCustomSection(customById[id] || {}, customSectionKeyById[id]);
       return sectionHtml[id] || '';
     })
     .join('\n');
@@ -468,8 +513,8 @@ ${navLinks}
 
   <header class="hero hero-centered">
     <div class="hero-inner">
-      <h1 class="gradient-title">${esc(data.hero.heading)}</h1>
-      <p class="lead">${esc(data.hero.lead).replace(/\n/g, '<br />')}</p>
+      <h1 class="gradient-title">${buildOptions.editable ? eText('hero.heading', data.hero.heading || '') : esc(data.hero.heading)}</h1>
+      <p class="lead">${buildOptions.editable ? eText('hero.lead', data.hero.lead || '') : esc(data.hero.lead).replace(/\n/g, '<br />')}</p>
       ${
         data.video?.youtubeId && data.video.youtubeId !== 'VIDEO_ID_HERE'
           ? `<div class="hero-image video-embed">
@@ -503,6 +548,9 @@ function buildLocation(data, options = {}) {
   const sectionOrder = getLocationSectionOrder(data);
   const navLinks = buildLocationNav(sectionOrder, data);
   const customById = Object.fromEntries(getLocationCustomSections(data).map((s) => [customSectionId(s), s]));
+  const customSectionKeyById = Object.fromEntries(
+    (data.customSections || []).map((s, i) => [customSectionId(s), `customSections.${i}`])
+  );
 
   const addressNote = data.address.noteHtml
     ? `        <p class="address-note">
@@ -603,7 +651,7 @@ ${regCards}
 
   const mainSections = sectionOrder
     .map((id) => {
-      if (id.startsWith('custom:')) return renderCustomSection(customById[id] || {});
+      if (id.startsWith('custom:')) return renderCustomSection(customById[id] || {}, customSectionKeyById[id]);
       return sectionHtml[id] || '';
     })
     .join('\n');
@@ -663,6 +711,7 @@ function buildAll(options = {}) {
     Array.isArray(options.excludeSlugs) ? options.excludeSlugs.filter(Boolean) : []
   );
   const skipIndex = options.skipIndex === true;
+  const onlyIndex = options.onlyIndex === true;
 
   let pages = 0;
 
@@ -672,6 +721,8 @@ function buildAll(options = {}) {
     console.log('Built index.html');
     pages += 1;
   }
+
+  if (onlyIndex) return { pages, excluded: [...excludeSlugs] };
 
   const locContentDir = contentPath('locations');
   const files = fs.readdirSync(locContentDir).filter((f) => f.endsWith('.json'));

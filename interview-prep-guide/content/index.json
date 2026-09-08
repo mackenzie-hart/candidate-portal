@@ -7,7 +7,7 @@
   },
   "hero": {
     "heading": "Candidate guide",
-    "lead": "We're excited to meet you in person!\nHere's everything you need to know for your panel interview."
+    "lead": "We're excited to meet you in person! Here's everything you need to know for your panel interview."
   },
   "sectionOrder": [
     "welcome",
@@ -38,11 +38,11 @@
       },
       {
         "title": "Learn about us",
-        "body": "Skim the links below — our careers site, product overview, and values. Genuine curiosity matters more than memorizing facts."
+        "body": "In the \"Explore\" section, you'll find links to our careers site, product overview, and values, and more."
       },
       {
         "title": "Prepare questions",
-        "body": "Bring 3–5 questions about the team, the role, how we work, and what success looks like in the first 90 days."
+        "body": "Bring questions about the team, the role, how we work, and what success looks like in the first 90 days."
       },
       {
         "title": "Get excited",
@@ -279,7 +279,7 @@
       },
       {
         "question": "What do I wear?",
-        "answer": "Business casual — wear what makes you comfortable. Most candidates choose slacks or jeans with a collared shirt or blouse. No suit required unless you prefer one."
+        "answer": "Business casual is recommended, but wear what makes you comfortable. Most candidates choose slacks or jeans with a collared shirt or blouse. No suit required unless you prefer one."
       },
       {
         "question": "Do I need to sign a Non-Disclosure Agreement (NDA) before my interview?",

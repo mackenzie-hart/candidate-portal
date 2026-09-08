@@ -40,5 +40,10 @@
       }
     });
     el.addEventListener('blur', () => sendUpdate(el));
+    // Editable text sometimes sits inside a link card (e.g. index page
+    // "Explore" links) — don't let clicking-to-edit trigger navigation.
+    if (el.closest('a')) {
+      el.addEventListener('click', (e) => e.preventDefault());
+    }
   });
 })();

@@ -83,6 +83,8 @@ function serveStatic(filePath, res) {
     '.json': 'application/json',
     '.png': 'image/png',
     '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.webp': 'image/webp',
     '.svg': 'image/svg+xml',
   };
   res.writeHead(200, { 'Content-Type': types[ext] || 'application/octet-stream' });
@@ -93,11 +95,12 @@ function previewHtml(id, options = {}) {
   const { buildIndex, buildLocation } = getBuilder();
   if (id === 'index') {
     const data = JSON.parse(fs.readFileSync(contentPath('index.json'), 'utf8'));
-    let html = buildIndex(data);
+    let html = buildIndex(data, { editable: !!options.editable });
     html = html.replace('href="css/site.css"', 'href="/css/site.css"');
     html = html.replace(/href="locations\//g, 'href="/locations/');
     html = html.replace('src="js/nav-scroll.js"', 'src="/js/nav-scroll.js"');
     html = html.replace(/src="icons\//g, 'src="/icons/');
+    if (options.editable) html = injectEditablePreview(html);
     return html;
   }
   const data = JSON.parse(fs.readFileSync(contentPath('locations', `${id}.json`), 'utf8'));
@@ -156,12 +159,18 @@ const server = http.createServer(async (req, res) => {
       const body = await readBody(req);
       const file = contentFile(id);
       fs.writeFileSync(file, JSON.stringify(body, null, 2) + '\n', 'utf8');
-      const excludeSlugs = id === 'redwood-city' ? [] : ['redwood-city'];
-      getBuilder().buildAll({ excludeSlugs, skipIndex: true });
-      const message =
-        id === 'redwood-city'
-          ? 'Saved Redwood City JSON + HTML.'
-          : 'Saved JSON + HTML (other cities only; Redwood City unchanged).';
+      let message;
+      if (id === 'index') {
+        getBuilder().buildAll({ skipIndex: false, onlyIndex: true });
+        message = 'Saved main hub JSON + HTML.';
+      } else {
+        const excludeSlugs = id === 'redwood-city' ? [] : ['redwood-city'];
+        getBuilder().buildAll({ excludeSlugs, skipIndex: true });
+        message =
+          id === 'redwood-city'
+            ? 'Saved Redwood City JSON + HTML.'
+            : 'Saved JSON + HTML (other cities only; Redwood City unchanged).';
+      }
       send(res, 200, JSON.stringify({ ok: true, message }));
       return;
     }
@@ -172,11 +181,12 @@ const server = http.createServer(async (req, res) => {
       const { buildIndex } = getBuilder();
       let html;
       if (id === 'index') {
-        html = buildIndex(data);
+        html = buildIndex(data, { editable: !!editable });
         html = html.replace('href="css/site.css"', 'href="/css/site.css"');
         html = html.replace(/href="locations\//g, 'href="/locations/');
         html = html.replace('src="js/nav-scroll.js"', 'src="/js/nav-scroll.js"');
         html = html.replace(/src="icons\//g, 'src="/icons/');
+        if (editable) html = injectEditablePreview(html);
       } else {
         html = locationPreviewHtml(data, !!editable);
       }
@@ -209,7 +219,8 @@ const server = http.createServer(async (req, res) => {
       url.pathname.startsWith('/css/') ||
       url.pathname.startsWith('/locations/') ||
       url.pathname.startsWith('/js/') ||
-      url.pathname.startsWith('/icons/')
+      url.pathname.startsWith('/icons/') ||
+      url.pathname.startsWith('/images/')
     ) {
       const siteFile = path.join(ROOT, decodeURIComponent(url.pathname));
       serveStatic(siteFile, res);

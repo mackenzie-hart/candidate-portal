@@ -103,7 +103,7 @@ function setFormVisible(visible) {
   sidebar.classList.toggle('sidebar--form-open', visible);
   document.querySelector('.workspace')?.classList.toggle('sidebar-expanded', visible);
   btnToggleForm.textContent = visible ? 'Hide form fields' : 'Show form fields';
-  if (visible && currentContent && !isLocked(currentId)) {
+  if (visible && currentContent && currentId !== 'index' && !isLocked(currentId)) {
     formRoot.innerHTML = LocationForm.renderLocationForm(currentContent);
     bindRichEditors(formRoot, markDirty);
     formRoot.querySelectorAll('.input').forEach((el) => {
@@ -123,21 +123,26 @@ function renderPage() {
 
   pageHint.textContent =
     'Click any text on the preview to edit it. When you click away, your change is remembered. Click Save changes to write the JSON files.';
-  if (formVisible) setFormVisible(true);
+
+  const isIndex = currentId === 'index';
+  btnToggleForm.disabled = isIndex;
+  btnToggleForm.title = isIndex ? 'Form fields aren’t available for the main hub — edit it on the preview.' : '';
+  if (isIndex && formVisible) setFormVisible(false);
+  else if (formVisible) setFormVisible(true);
+
   refreshVisualPreview();
 }
 
 async function loadPages() {
   pages = await api('/api/pages');
-  const locations = pages.filter((p) => p.type === 'location');
 
-  pageSelect.innerHTML = locations
+  pageSelect.innerHTML = pages
     .map((p) => `<option value="${p.id}">${p.label}</option>`)
     .join('');
 
   const saved = sessionStorage.getItem('prep-editor-page');
-  const firstEditable = locations[0]?.id;
-  currentId = saved && locations.some((p) => p.id === saved) ? saved : firstEditable;
+  const firstEditable = pages[0]?.id;
+  currentId = saved && pages.some((p) => p.id === saved) ? saved : firstEditable;
   pageSelect.value = currentId;
   await loadPage(currentId);
 }
@@ -170,9 +175,11 @@ async function savePage() {
     currentContent = payload;
     dirty = false;
     setStatus(
-      currentId === 'redwood-city'
-        ? 'Saved Redwood City JSON + HTML'
-        : 'Saved JSON + HTML (Redwood City unchanged unless you edited it)',
+      currentId === 'index'
+        ? 'Saved main hub JSON + HTML'
+        : currentId === 'redwood-city'
+          ? 'Saved Redwood City JSON + HTML'
+          : 'Saved JSON + HTML (Redwood City unchanged unless you edited it)',
       'ok'
     );
     refreshVisualPreview();
