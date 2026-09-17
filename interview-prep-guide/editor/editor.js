@@ -148,6 +148,11 @@ async function loadPages() {
 }
 
 async function loadPage(id) {
+  // Flush whatever's currently focused/edited on the page we're about to
+  // leave before deciding whether there are unsaved changes — otherwise an
+  // edit made right before switching pages can be silently lost (its blur
+  // message may not arrive until after we've already moved on).
+  syncPendingEdits();
   if (dirty && !confirm('You have unsaved changes. Switch city anyway?')) {
     pageSelect.value = currentId;
     return;
@@ -203,6 +208,11 @@ function syncPendingEdits() {
   // City). Only harvest edits when the preview actually matches currentId.
   const expectedPageClass = currentId === 'index' ? 'page-index' : `page-${currentId}`;
   if (!doc.body.classList.contains(expectedPageClass)) return;
+  // A focused field's blur (and the postMessage it queues) may not have
+  // fired yet — that's exactly the in-progress edit this function exists
+  // to catch, so flag it as dirty rather than letting a page switch look
+  // like it has nothing to lose.
+  const wasEditingLive = doc.activeElement?.classList?.contains('prep-edit');
   doc.querySelectorAll('.prep-edit[data-edit-path]').forEach((el) => {
     LocationForm.applyVisualEdit(
       currentContent,
@@ -211,6 +221,7 @@ function syncPendingEdits() {
       readPreviewEditValue(el)
     );
   });
+  if (wasEditingLive) markDirty();
 }
 
 async function savePage() {
@@ -243,6 +254,14 @@ async function savePage() {
 
 window.addEventListener('message', (event) => {
   if (event.data?.type !== 'prep-edit' || !currentContent) return;
+  // Switching pages blurs whatever field was focused in the old preview,
+  // which queues this message — but it can arrive after currentContent has
+  // already been replaced by the new page's content. event.source is the
+  // sending document's window, which becomes a distinct (discarded) object
+  // once the iframe navigates to a new srcdoc — comparing against the
+  // iframe's current window discards any message from a page you've since
+  // navigated away from.
+  if (event.source !== preview.contentWindow) return;
   LocationForm.applyVisualEdit(
     currentContent,
     event.data.path,
