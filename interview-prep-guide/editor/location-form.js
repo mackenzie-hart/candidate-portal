@@ -38,6 +38,12 @@ function paragraphsToText(paragraphs) {
     .join('\n\n');
 }
 
+function linesToParagraph(block) {
+  const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
+  if (lines.length > 1) return { type: 'list', items: lines };
+  return { type: 'html', html: lines[0] || '' };
+}
+
 function textToParagraphs(text) {
   const trimmed = String(text || '').trim();
   if (!trimmed) return [];
@@ -46,15 +52,9 @@ function textToParagraphs(text) {
       .split(/\n\s*\n/)
       .map((block) => block.trim())
       .filter(Boolean)
-      .map((block) => ({ type: 'html', html: block.replace(/\n/g, '<br>') }));
+      .map(linesToParagraph);
   }
-  const lines = trimmed
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean);
-  if (lines.length > 1) return [{ type: 'list', items: lines }];
-  if (lines.length === 1) return [{ type: 'html', html: lines[0] }];
-  return [];
+  return [linesToParagraph(trimmed)];
 }
 
 function field(label, path, value = '', opts = {}) {
