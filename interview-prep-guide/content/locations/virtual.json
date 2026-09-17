@@ -17,17 +17,13 @@
       "label": "Zoom setup"
     },
     {
-      "id": "registration",
-      "label": "Checking in"
-    },
-    {
       "id": "contact",
       "label": "Questions"
     }
   ],
   "address": {
     "heading": "Where to join",
-    "addressHtml": "Zoom link located in your Google Calendar invitation.",
+    "addressHtml": "At the time of your interview, please join the Zoom meeting via the link located in your Google Calendar invitation. If you do not see a link, please reach out to your Recruiting Coordinator.",
     "noteHtml": "",
     "mapsUrl": "",
     "style": {
@@ -43,13 +39,12 @@
         "title": "Before you join",
         "paragraphs": [
           {
-            "type": "list",
-            "items": [
-              "Find a quiet, private space with good lighting",
-              "Confirm the Zoom link is working — we recommend downloading the desktop application",
-              "Test your camera, microphone, speakers and internet connection ahead of time",
-              "Close extra tabs or applications to avoid notifications or lag"
-            ]
+            "type": "html",
+            "html": "Find a quiet, private space with good lighting. Confirm the Zoom link is working — we recommend downloading the desktop application. Test your camera, microphone, speakers and internet connection ahead of time. Close extra tabs or applications to avoid notifications or lag."
+          },
+          {
+            "type": "html",
+            "html": "Before your scheduled interview, please ensure that you electronically sign our NDA using Box Sign through the link provided by your Recruiting Coordinator."
           }
         ]
       },
@@ -69,24 +64,9 @@
         "paragraphs": [
           {
             "type": "html",
-            "html": "The use of Zoom AI features or any personal recording, transcription, or automated note-taking tools during live interviews is <strong>not permitted</strong>."
+            "html": "The use of Zoom AI features or any personal recording, transcription, or automated note-taking tools during live interviews is not permitted at this time."
           }
         ]
-      }
-    ],
-    "style": {
-      "color": "#212121",
-      "fontWeight": ""
-    }
-  },
-  "registration": {
-    "heading": "Checking in",
-    "cards": [
-      {
-        "title": "NDA",
-        "icon": "images/redwood-city/icons/file-pencil.png",
-        "body": "Before your scheduled interview, please ensure that you electronically sign our NDA using Box Sign through the link provided by your Recruiting Coordinator.",
-        "note": ""
       }
     ],
     "style": {

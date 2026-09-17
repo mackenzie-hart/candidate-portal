@@ -99,7 +99,8 @@ function getIndexSectionOrder(data) {
 }
 
 function getLocationAvailableSections(data) {
-  const ids = ['address', 'registration', 'contact'];
+  const ids = ['address', 'contact'];
+  if (data.registration) ids.push('registration');
   if (data.zoom) ids.push('zoom');
   else if (data.gettingHere) ids.push('gettingHere');
   else if (data.transit) ids.push('transit');
@@ -113,7 +114,8 @@ function getLocationSectionOrder(data) {
   const middle = data.zoom ? 'zoom' : data.gettingHere ? 'gettingHere' : 'transit';
   const defaultOrder = ['address', middle];
   if (data.arrival) defaultOrder.push('arrival');
-  defaultOrder.push('registration', 'contact');
+  if (data.registration) defaultOrder.push('registration');
+  defaultOrder.push('contact');
   getLocationCustomSections(data).forEach((s) => defaultOrder.push(customSectionId(s)));
   return normalizeOrder(data.sectionOrder, available, defaultOrder);
 }

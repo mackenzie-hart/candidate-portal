@@ -225,6 +225,28 @@ function renderInfoBlocks(blocks, showIcons = true, sectionKey = '') {
     .join('\n');
 }
 
+function renderNumberedBlocks(blocks, sectionKey) {
+  return (blocks || [])
+    .map((b, i) => {
+      const title =
+        buildOptions.editable && sectionKey
+          ? eText(`${sectionKey}.blocks.${i}.title`, b.title || '')
+          : esc(b.title || '');
+      const bodyContent =
+        buildOptions.editable && sectionKey
+          ? eParagraphs(`${sectionKey}.blocks.${i}.paragraphs`, b.paragraphs)
+          : renderParagraphs(b);
+      return `        <div class="prep-step">
+          <div class="prep-step-header">
+            <span class="prep-badge"><span class="badge-num">${i + 1}</span></span>
+            <h3>${title}</h3>
+          </div>
+          <div class="rich-body">${bodyContent}</div>
+        </div>`;
+    })
+    .join('\n');
+}
+
 function renderInfoSection(id, section) {
   if (!section) return '';
   return `
@@ -581,9 +603,9 @@ function buildLocation(data, options = {}) {
 
   const addressLayoutClass = mapsEmbedUrl ? 'address-layout' : '';
 
-  const regCards = (data.registration.cards || [])
-    .map((c, i) => renderTipCard(c, i, 'registration'))
-    .join('\n');
+  const regCards = data.registration
+    ? (data.registration.cards || []).map((c, i) => renderTipCard(c, i, 'registration')).join('\n')
+    : '';
 
   const transitSection = data.transit
     ? `
@@ -599,7 +621,9 @@ ${renderStepsList(data.transit.blocks, { sectionKey: 'transit', itemsKey: 'block
     ? `
     <section id="zoom"${sectionStyleAttr(data.zoom)}>
       <h2>${sectionHeading('zoom.heading', data.zoom.heading)}</h2>
-${renderInfoBlocks(data.zoom.blocks, false, 'zoom')}
+      <div class="prep-grid">
+${renderNumberedBlocks(data.zoom.blocks, 'zoom')}
+      </div>
     </section>`
     : '';
 
@@ -633,13 +657,15 @@ ${addressMap}
     gettingHere: gettingHereSection,
     arrival: arrivalSection,
 
-    registration: `
+    registration: data.registration
+      ? `
     <section id="registration"${sectionStyleAttr(data.registration)}>
       <h2>${sectionHeading('registration.heading', data.registration.heading)}</h2>
       <div class="tips-grid">
 ${regCards}
       </div>
-    </section>`,
+    </section>`
+      : '',
 
     contact: `
     <section id="contact"${sectionStyleAttr(data.contact)}>
