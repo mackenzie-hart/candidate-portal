@@ -274,7 +274,7 @@ ${intro}${body}
     </section>`;
 }
 
-function renderStepsList(items, { sectionKey, itemsKey = 'items', photoPlaceholder = false } = {}) {
+function renderStepsList(items, { sectionKey, itemsKey = 'items', photoPlaceholder = false, showNumbers = true } = {}) {
   return (items || [])
     .map((item, i) => {
       const hasPhoto = !!item.photoUrl;
@@ -297,11 +297,13 @@ function renderStepsList(items, { sectionKey, itemsKey = 'items', photoPlacehold
           '<div class="step-photo photo-placeholder photo-placeholder--soft"></div>';
       }
       const stepClass = photoCol ? 'step' : 'step step--text-only';
+      const numBadge = showNumbers
+        ? `<span class="step-num"><span class="badge-num">${i + 1}</span></span>\n              `
+        : '';
       return `        <div class="${stepClass}">
           <div>
             <div class="step-title">
-              <span class="step-num"><span class="badge-num">${i + 1}</span></span>
-              <h3>${title}</h3>
+              ${numBadge}<h3>${title}</h3>
             </div>
             <div class="step-body">
               ${body}
@@ -588,7 +590,7 @@ function buildLocation(data, options = {}) {
     <section id="transit"${sectionStyleAttr(data.transit)}>
       <h2>${sectionHeading('transit.heading', data.transit.heading)}</h2>
       <div class="steps">
-${renderStepsList(data.transit.blocks, { sectionKey: 'transit', itemsKey: 'blocks' })}
+${renderStepsList(data.transit.blocks, { sectionKey: 'transit', itemsKey: 'blocks', showNumbers: false })}
       </div>
     </section>`
     : '';

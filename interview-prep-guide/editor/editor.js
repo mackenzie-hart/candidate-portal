@@ -161,9 +161,54 @@ async function loadPage(id) {
   setStatus('Ready — click text on the preview to edit', 'ok');
 }
 
+function normalizePreviewHtml(html) {
+  return String(html || '')
+    .replace(/<b>/gi, '<strong>')
+    .replace(/<\/b>/gi, '</strong>')
+    .replace(/<i>/gi, '<em>')
+    .replace(/<\/i>/gi, '</em>')
+    .replace(/<div>/gi, '<p>')
+    .replace(/<\/div>/gi, '</p>')
+    .replace(/<p><\/p>/g, '')
+    .trim();
+}
+
+function readPreviewEditValue(el) {
+  const type = el.dataset.editType;
+  if (type === 'html') return normalizePreviewHtml(el.innerHTML);
+  if (type === 'paragraphs') return el.innerText.replace(/\r\n/g, '\n').trim();
+  return el.innerText.replace(/\s+/g, ' ').trim();
+}
+
+// Clicking "Save changes" blurs whatever contenteditable field was just
+// edited, but that field's blur handler notifies us via postMessage —
+// which is delivered asynchronously. Without this, Save's own click
+// handler can run and read currentContent before that message arrives,
+// silently dropping the edit you just made. Reading straight from the
+// (same-origin) iframe DOM avoids depending on that message ever landing.
+function syncPendingEdits() {
+  if (!currentContent) return;
+  let doc;
+  try {
+    doc = preview.contentDocument;
+  } catch {
+    return;
+  }
+  if (!doc) return;
+  doc.querySelectorAll('.prep-edit[data-edit-path]').forEach((el) => {
+    LocationForm.applyVisualEdit(
+      currentContent,
+      el.dataset.editPath,
+      el.dataset.editType,
+      readPreviewEditValue(el)
+    );
+  });
+}
+
 async function savePage() {
   if (!currentId) return;
   try {
+    syncPendingEdits();
     const payload = structuredClone(currentContent);
     if (formVisible) {
       LocationForm.readFormIntoContent(formRoot, payload);

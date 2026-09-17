@@ -97,7 +97,9 @@ function previewHtml(id, options = {}) {
     const data = JSON.parse(fs.readFileSync(contentPath('index.json'), 'utf8'));
     let html = buildIndex(data, { editable: !!options.editable });
     html = html.replace('href="css/site.css"', 'href="/css/site.css"');
-    html = html.replace(/href="locations\//g, 'href="/locations/');
+    html = html.replace(/href="locations\/([\w-]+)\.html"/g, (_, slug) =>
+      options.editable ? `href="/api/preview/${slug}?editable=1"` : `href="/locations/${slug}.html"`
+    );
     html = html.replace('src="js/nav-scroll.js"', 'src="/js/nav-scroll.js"');
     html = html.replace(/src="icons\//g, 'src="/icons/');
     if (options.editable) html = injectEditablePreview(html);
@@ -106,7 +108,10 @@ function previewHtml(id, options = {}) {
   const data = JSON.parse(fs.readFileSync(contentPath('locations', `${id}.json`), 'utf8'));
   let html = buildLocation(data, { editable: !!options.editable });
   html = html.replace('href="../css/site.css"', 'href="/css/site.css"');
-  html = html.replace('href="../index.html"', 'href="/api/preview/index"');
+  html = html.replace(
+    'href="../index.html"',
+    options.editable ? 'href="/api/preview/index?editable=1"' : 'href="/api/preview/index"'
+  );
   html = html.replace('src="../js/nav-scroll.js"', 'src="/js/nav-scroll.js"');
   if (options.editable) html = injectEditablePreview(html);
   return html;
@@ -126,7 +131,10 @@ function locationPreviewHtml(data, editable = false) {
   const { buildLocation } = getBuilder();
   let html = buildLocation(data, { editable });
   html = html.replace('href="../css/site.css"', 'href="/css/site.css"');
-  html = html.replace('href="../index.html"', 'href="/api/preview/index"');
+  html = html.replace(
+    'href="../index.html"',
+    editable ? 'href="/api/preview/index?editable=1"' : 'href="/api/preview/index"'
+  );
   html = html.replace('src="../js/nav-scroll.js"', 'src="/js/nav-scroll.js"');
   if (editable) html = injectEditablePreview(html);
   return html;
@@ -183,7 +191,9 @@ const server = http.createServer(async (req, res) => {
       if (id === 'index') {
         html = buildIndex(data, { editable: !!editable });
         html = html.replace('href="css/site.css"', 'href="/css/site.css"');
-        html = html.replace(/href="locations\//g, 'href="/locations/');
+        html = html.replace(/href="locations\/([\w-]+)\.html"/g, (_, slug) =>
+          editable ? `href="/api/preview/${slug}?editable=1"` : `href="/locations/${slug}.html"`
+        );
         html = html.replace('src="js/nav-scroll.js"', 'src="/js/nav-scroll.js"');
         html = html.replace(/src="icons\//g, 'src="/icons/');
         if (editable) html = injectEditablePreview(html);

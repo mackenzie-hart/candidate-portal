@@ -5,7 +5,9 @@
   "hero": {
     "title": "San Francisco",
     "lead": "",
-    "photo": "🌉 SF office — photo placeholder"
+    "photo": "🌉 SF office — photo placeholder",
+    "photoUrl": "images/san-francisco/building-lobby.jpg",
+    "photoAlt": "Lobby of the Box San Francisco office with seating and a large video wall"
   },
   "nav": [
     {
@@ -31,9 +33,9 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "500 Howard St, Suite 200<br>San Francisco, CA 94105",
+    "addressHtml": "100 First Street, 17th Floor<br>San Francisco, CA 94105",
     "noteHtml": "",
-    "mapsUrl": "https://maps.google.com/?q=500+Howard+St+San+Francisco+CA",
+    "mapsUrl": "https://maps.google.com/?q=100+First+Street+San+Francisco+CA",
     "style": {
       "color": "#212121",
       "fontWeight": ""
@@ -48,7 +50,7 @@
         "paragraphs": [
           {
             "type": "html",
-            "html": "Building entrance on Howard St. Take the elevator to Suite 200. Check in with the front desk."
+            "html": "Please check in with security at the front desk lobby. Your name will be on the security list and you will be directed to an elevator which will take you to the 17th floor, where our office is! Once in the lobby, check in with reception."
           }
         ]
       }
@@ -74,8 +76,8 @@
         "note": ""
       },
       {
-        "title": "Arrival &amp; departure",
-        "body": "A team member will escort you from the lobby. Return your badge at the front desk when leaving.",
+        "title": "Arrival & departure",
+        "body": "Return your badge at the front desk when leaving.",
         "icon": "images/redwood-city/icons/strategy.png"
       }
     ],
@@ -100,12 +102,29 @@
       {
         "icon": "🅿️",
         "title": "Parking",
+        "photoUrl": "images/san-francisco/sf-parking.png",
+        "photoAlt": "Entrance to the 100 First Garage parking garage",
         "paragraphs": [
           {
             "type": "list",
             "items": [
-              "No on-site parking. Nearest garages: 5th & Mission Garage, Moscone Center Garage.",
-              "Typical cost: $20–35 for a half day. Allow extra time to park and walk."
+              "100 First Garage is the closest parking garage. Be sure to reserve a spot in advance through ParkWhiz or SpotHero as it fills quickly in the morning.",
+              "Unfortunately, we do not validate or sponsor parking at this time. The typical cost for parking ranges from $20 to $35 for a half day. Allow extra time to park and walk."
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "📍",
+        "title": "Public transportation",
+        "photoUrl": "images/san-francisco/building-front.png",
+        "photoAlt": "Front entrance of the 100 First Street office building",
+        "paragraphs": [
+          {
+            "type": "list",
+            "items": [
+              "Taking public transit or rideshare (Uber/Lyft/Waymo) is recommended — if you want to avoid parking downtown, you could opt to park in a local neighborhood (e.g. Potrero Hill) and take rideshare from there.",
+              "The nearest BART station is Montgomery Station, a 6-10 minute walk to the office. A bus stop is located right next to the office building. The Ferry Building is a 13 minute walk to the office."
             ]
           }
         ]
