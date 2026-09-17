@@ -187,14 +187,22 @@ function readPreviewEditValue(el) {
 // silently dropping the edit you just made. Reading straight from the
 // (same-origin) iframe DOM avoids depending on that message ever landing.
 function syncPendingEdits() {
-  if (!currentContent) return;
+  if (!currentContent || !currentId) return;
   let doc;
   try {
     doc = preview.contentDocument;
   } catch {
     return;
   }
-  if (!doc) return;
+  if (!doc || !doc.body) return;
+  // The iframe can still be showing the *previous* page for a moment after
+  // switching (srcdoc hasn't finished swapping in). If we don't check this,
+  // its still-visible fields get read as if they belonged to the new page
+  // and get merged into the wrong page's content — corrupting it with
+  // fields that don't belong (e.g. a "zoom" section written onto Redwood
+  // City). Only harvest edits when the preview actually matches currentId.
+  const expectedPageClass = currentId === 'index' ? 'page-index' : `page-${currentId}`;
+  if (!doc.body.classList.contains(expectedPageClass)) return;
   doc.querySelectorAll('.prep-edit[data-edit-path]').forEach((el) => {
     LocationForm.applyVisualEdit(
       currentContent,

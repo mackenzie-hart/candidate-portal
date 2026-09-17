@@ -165,6 +165,22 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname.startsWith('/api/content/') && req.method === 'PUT') {
       const id = url.pathname.split('/').pop();
       const body = await readBody(req);
+      // A client-side bug can end up sending one page's edited content to a
+      // different page's save endpoint (e.g. Zoom's fields landing in San
+      // Francisco's file). Every location JSON carries its own slug, and
+      // index.json carries none — refuse a save whose payload doesn't match
+      // the file it's about to overwrite, rather than silently corrupting it.
+      const expectedSlug = id === 'index' ? undefined : id;
+      if (body.slug !== expectedSlug) {
+        send(
+          res,
+          400,
+          JSON.stringify({
+            error: `Refusing to save: payload slug "${body.slug}" does not match target "${id}".`,
+          })
+        );
+        return;
+      }
       const file = contentFile(id);
       fs.writeFileSync(file, JSON.stringify(body, null, 2) + '\n', 'utf8');
       let message;
