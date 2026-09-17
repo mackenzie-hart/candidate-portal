@@ -5,16 +5,18 @@
   "hero": {
     "title": "Zoom (virtual)",
     "lead": "",
-    "photo": "💻 Virtual interview"
+    "photo": "💻 Virtual interview",
+    "photoUrl": "images/virtual/card.webp",
+    "photoAlt": "Box employees smiling together on a virtual Zoom interview"
   },
   "nav": [
     {
       "id": "address",
-      "label": "Location"
+      "label": "Zoom setup"
     },
     {
       "id": "zoom",
-      "label": "Zoom setup"
+      "label": "Preparation"
     },
     {
       "id": "contact",
