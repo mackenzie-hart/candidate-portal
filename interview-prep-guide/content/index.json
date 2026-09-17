@@ -172,7 +172,9 @@
       {
         "slug": "san-francisco",
         "virtual": false,
-        "title": "San Francisco"
+        "title": "San Francisco",
+        "imageUrl": "images/san-francisco/card.jpg",
+        "imageAlt": "Box San Francisco employees posing in front of a colorful mural reading Get Shit Done"
       },
       {
         "slug": "chicago",
@@ -191,12 +193,16 @@
       {
         "slug": "new-york-city",
         "virtual": false,
-        "title": "NYC"
+        "title": "NYC",
+        "imageUrl": "images/new-york-city/card.webp",
+        "imageAlt": "Box employees applauding during a team celebration in front of Box logo screens"
       },
       {
         "slug": "amsterdam",
         "virtual": false,
-        "title": "Amsterdam"
+        "title": "Amsterdam",
+        "imageUrl": "images/amsterdam/card.jpeg",
+        "imageAlt": "Two Box employees posing in front of the Box Worldwide office map wall"
       },
       {
         "slug": "london",
@@ -209,13 +215,15 @@
         "slug": "warsaw",
         "virtual": false,
         "title": "Warsaw",
-        "imageUrl": "images/warsaw/card.jpg",
-        "imageAlt": "Warsaw skyline with the Palace of Culture and Science"
+        "imageUrl": "images/warsaw/card.webp",
+        "imageAlt": "Box Warsaw employees chatting together near the office's giant BOX letters"
       },
       {
         "slug": "virtual",
         "virtual": true,
-        "title": "Virtual (Zoom)"
+        "title": "Virtual (Zoom)",
+        "imageUrl": "images/virtual/card.webp",
+        "imageAlt": "Box employees smiling together on a virtual Zoom interview"
       }
     ],
     "style": {
