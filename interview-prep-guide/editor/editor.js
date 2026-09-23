@@ -253,6 +253,21 @@ async function savePage() {
 }
 
 window.addEventListener('message', (event) => {
+  if (event.data?.type === 'prep-navigate') {
+    // A location card or "Back to Main Page" link was clicked inside the
+    // preview. That click is prevented in preview-edit.js specifically so
+    // navigation goes through loadPage() instead of the iframe navigating
+    // on its own — otherwise currentId stays stuck on whatever page was
+    // last picked from the dropdown while the iframe shows something else,
+    // and any edit made after that gets saved onto the wrong page.
+    if (event.source !== preview.contentWindow) return;
+    const id = event.data.id;
+    if (!pages.some((p) => p.id === id)) return;
+    loadPage(id).then(() => {
+      pageSelect.value = currentId;
+    });
+    return;
+  }
   if (event.data?.type !== 'prep-edit' || !currentContent) return;
   // Switching pages blurs whatever field was focused in the old preview,
   // which queues this message — but it can arrive after currentContent has
