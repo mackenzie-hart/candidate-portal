@@ -46,7 +46,7 @@
     "blocks": [
       {
         "icon": "🚪",
-        "title": "Lobby instructions",
+        "title": "",
         "photoUrl": "images/san-francisco/building-lobby.jpg",
         "photoAlt": "Lobby of the Box San Francisco office with seating and a large video wall",
         "paragraphs": [
