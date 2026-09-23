@@ -214,6 +214,25 @@ function renderInfoBlocks(blocks, showIcons = true, sectionKey = '') {
         buildOptions.editable && sectionKey
           ? eParagraphs(`${sectionKey}.blocks.${i}.paragraphs`, b.paragraphs)
           : renderParagraphs(b);
+      if (b.photoUrl) {
+        // Reuses the exact .step / .step-photo layout from the "Getting
+        // here" steps list, so a photo block here looks identical to one
+        // there — text in its own column on the left, photo card on the
+        // right — instead of bolting a photo onto the icon-row layout.
+        const photo = `<img src="../${esc(b.photoUrl)}" alt="${esc(b.photoAlt || '')}" />`;
+        return `        <div class="step">
+          <div>
+            <div class="step-title">
+              ${showIcons ? `<span class="info-icon">${iconContent}</span>` : ''}
+              <h3>${title}</h3>
+            </div>
+            <div class="step-body">
+              ${bodyContent}
+            </div>
+          </div>
+          <div class="step-photo">${photo}</div>
+        </div>`;
+      }
       return `        <div class="info-block${showIcons ? '' : ' no-icon'}">
           ${showIcons ? `<span class="info-icon">${iconContent}</span>` : ''}
           <div>

@@ -20,6 +20,10 @@
       "label": "Getting here"
     },
     {
+      "id": "arrival",
+      "label": "When you arrive"
+    },
+    {
       "id": "registration",
       "label": "Checking in"
     },
@@ -50,7 +54,7 @@
         "paragraphs": [
           {
             "type": "html",
-            "html": "The garage entrance is located between our two Box buildings at the intersection of <strong>Middlefield Road &amp; Jefferson Avenue</strong>."
+            "html": "The garage entrance is located between our two Box buildings at the intersection of Middlefield Road & Jefferson Avenue."
           },
           {
             "type": "html",
@@ -69,7 +73,7 @@
         "paragraphs": [
           {
             "type": "html",
-            "html": "<em>Important: You will need to use the guest/public elevator to reach the lobby. Only Box employees have access to the other designated elevators.</em>"
+            "html": "Important: You will need to use the guest/public elevator to reach the lobby. Only Box employees have access to the other designated elevators."
           },
           {
             "type": "html",
@@ -80,9 +84,19 @@
             "html": "Once on the ground floor, exit the building and proceed straight to Box's lobby front doors."
           }
         ]
-      },
+      }
+    ],
+    "style": {
+      "color": "#212121",
+      "fontWeight": ""
+    }
+  },
+  "arrival": {
+    "heading": "When you arrive",
+    "blocks": [
       {
-        "title": "Checking in at the lobby",
+        "icon": "✅",
+        "title": "",
         "photoUrl": "images/redwood-city/garage-elevators.png",
         "photoAlt": "Garage elevators signage leading to the Box HQ lobby",
         "paragraphs": [
@@ -120,7 +134,7 @@
       {
         "title": "Laptop",
         "icon": "images/redwood-city/icons/all-devices.png",
-        "body": "Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiting partners know. ",
+        "body": "Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiting partners know.",
         "note": ""
       }
     ],
@@ -186,6 +200,7 @@
   "sectionOrder": [
     "address",
     "gettingHere",
+    "arrival",
     "registration",
     "custom:cs-ms4z94g2",
     "contact"
