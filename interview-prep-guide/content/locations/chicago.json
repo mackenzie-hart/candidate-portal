@@ -46,6 +46,8 @@
       {
         "icon": "🚇",
         "title": "Parking & public transportation",
+        "photoUrl": "images/chicago/wacker-entrance.jpg",
+        "photoAlt": "123 North Wacker Drive building entrance",
         "paragraphs": [
           {
             "type": "html",
