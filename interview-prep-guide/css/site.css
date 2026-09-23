@@ -932,6 +932,15 @@ section[id^="custom-"] .card.tip-card {
 
 .step-body p:last-child { margin-bottom: 0; }
 
+.step-body ul {
+  list-style: disc;
+  margin: 0.35rem 0 0.75rem 1.25rem;
+  padding: 0;
+}
+
+.step-body li { font-size: 16px; color: var(--muted); margin-bottom: 0.35rem; }
+.step-body li:last-child { margin-bottom: 0; }
+
 .step-photo {
   border-radius: var(--radius);
   width: 100%;
