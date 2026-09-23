@@ -46,6 +46,8 @@
       {
         "icon": "🅿️",
         "title": "Parking",
+        "photoUrl": "images/austin/parking-garage.jpg",
+        "photoAlt": "600 Congress Parking Garage entrance",
         "paragraphs": [
           {
             "type": "html",
@@ -65,20 +67,12 @@
       {
         "icon": "🚪",
         "title": "Getting to the lobby",
+        "photoUrl": "images/austin/building-entrance.jpg",
+        "photoAlt": "600 Congress building entrance at night",
         "paragraphs": [
           {
             "type": "html",
             "html": "We are located on the corner of 6th and Congress. Use the entrance on Congress and head to the building security desk on the ground floor where they can let you up to the 24th floor."
-          }
-        ]
-      },
-      {
-        "icon": "✅",
-        "title": "Check-in",
-        "paragraphs": [
-          {
-            "type": "html",
-            "html": "Once you enter the building from the garage, check in with building security."
           }
         ]
       }
