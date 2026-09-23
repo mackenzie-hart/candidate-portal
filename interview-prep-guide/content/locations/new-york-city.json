@@ -5,7 +5,9 @@
   "hero": {
     "title": "New York",
     "lead": "",
-    "photo": "🗽 NYC office — photo placeholder"
+    "photo": "🗽 NYC office — photo placeholder",
+    "photoUrl": "images/new-york-city/card.webp",
+    "photoAlt": "Box employees applauding during a team celebration in front of Box logo screens"
   },
   "nav": [
     {
@@ -45,6 +47,8 @@
       {
         "icon": "🚇",
         "title": "Public transportation",
+        "photoUrl": "images/new-york-city/building-entrance.jpg",
+        "photoAlt": "386 building entrance with glass revolving door",
         "paragraphs": [
           {
             "type": "html",
@@ -71,6 +75,8 @@
       {
         "icon": "🚪",
         "title": "Lobby instructions",
+        "photoUrl": "images/new-york-city/lobby.jpg",
+        "photoAlt": "Lounge seating area in the 386 Park Ave S office lobby",
         "paragraphs": [
           {
             "type": "html",
