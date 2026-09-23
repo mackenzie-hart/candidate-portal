@@ -47,8 +47,8 @@
       {
         "icon": "🚇",
         "title": "Public transportation",
-        "photoUrl": "images/new-york-city/building-entrance.jpg",
-        "photoAlt": "386 building entrance with glass revolving door",
+        "photoUrl": "images/new-york-city/work-as-one.png",
+        "photoAlt": "Office hallway with a Work as one wall graphic and seating bench",
         "paragraphs": [
           {
             "type": "html",
@@ -75,8 +75,8 @@
       {
         "icon": "🚪",
         "title": "Lobby instructions",
-        "photoUrl": "images/new-york-city/lobby.jpg",
-        "photoAlt": "Lounge seating area in the 386 Park Ave S office lobby",
+        "photoUrl": "images/new-york-city/reception-desk.png",
+        "photoAlt": "Reception desk with marble counter and a circular logo pattern on the wall",
         "paragraphs": [
           {
             "type": "html",
