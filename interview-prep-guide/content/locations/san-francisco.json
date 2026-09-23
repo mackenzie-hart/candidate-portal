@@ -6,8 +6,8 @@
     "title": "San Francisco",
     "lead": "",
     "photo": "🌉 SF office — photo placeholder",
-    "photoUrl": "images/san-francisco/building-lobby.jpg",
-    "photoAlt": "Lobby of the Box San Francisco office with seating and a large video wall"
+    "photoUrl": "images/san-francisco/card.jpg",
+    "photoAlt": "Box San Francisco employees posing in front of a colorful mural reading Get Shit Done"
   },
   "nav": [
     {
@@ -47,6 +47,8 @@
       {
         "icon": "🚪",
         "title": "Lobby instructions",
+        "photoUrl": "images/san-francisco/building-lobby.jpg",
+        "photoAlt": "Lobby of the Box San Francisco office with seating and a large video wall",
         "paragraphs": [
           {
             "type": "html",
