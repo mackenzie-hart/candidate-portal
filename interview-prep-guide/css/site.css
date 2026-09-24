@@ -1324,3 +1324,13 @@ footer {
   font-size: 16px;
   color: var(--body-text);
 }
+
+@media (max-width: 720px) {
+  .page-location section h2 {
+    text-align: center;
+  }
+
+  .hero.hero-single.hero-xl .hero-text h1 {
+    text-align: center;
+  }
+}
