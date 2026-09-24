@@ -889,6 +889,18 @@ section[id^="custom-"] .card.tip-card {
   grid-template-columns: 1fr;
 }
 
+.page-amsterdam .address-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-amsterdam .address-card p[style*="margin-top"] {
+  margin-top: 0 !important;
+}
+
 /* ── Numbered steps (location pages) ── */
 .steps { display: flex; flex-direction: column; }
 
