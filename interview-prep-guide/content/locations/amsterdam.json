@@ -46,22 +46,10 @@
     "heading": "Getting here",
     "blocks": [
       {
-        "icon": "🅿️",
-        "title": "Parking",
-        "paragraphs": [
-          {
-            "type": "list",
-            "items": [
-              "Car paid parking nearby: Nassaukade, 946",
-              "Q-Park Byzantium (1 minute drive)",
-              "Bike parking: Overtoom 2-4-6, hoek Nassaukade 391, 393-394, 1054 AE Amsterdam"
-            ]
-          }
-        ]
-      },
-      {
         "icon": "🚇",
-        "title": "Public transportation",
+        "title": "Parking & public transportation",
+        "photoUrl": "images/amsterdam/office.webp",
+        "photoAlt": "Exterior of the Box Amsterdam WeWork office building",
         "paragraphs": [
           {
             "type": "list",
@@ -70,6 +58,14 @@
               "Bus lines 284, 288 (1 minute walk)",
               "A10 (10 minute drive)",
               "OV-Fiets (2 minute walk)"
+            ]
+          },
+          {
+            "type": "list",
+            "items": [
+              "Car paid parking nearby: Nassaukade, 946",
+              "Q-Park Byzantium (1 minute drive)",
+              "Bike parking: Overtoom 2-4-6, hoek Nassaukade 391, 393-394, 1054 AE Amsterdam"
             ]
           }
         ]
@@ -86,6 +82,8 @@
       {
         "icon": "🚪",
         "title": "Getting to the lobby",
+        "photoUrl": "images/amsterdam/reception.webp",
+        "photoAlt": "Reception desk and staircase in the Box Amsterdam office lobby",
         "paragraphs": [
           {
             "type": "html",
@@ -95,13 +93,8 @@
       },
       {
         "icon": "✅",
-        "title": "Check-in",
-        "paragraphs": [
-          {
-            "type": "html",
-            "html": "Head to the main entrance. Let reception know you're here for Box, then sign in on the tablet and add your interviewer as your host."
-          }
-        ]
+        "title": "",
+        "paragraphs": []
       }
     ],
     "style": {
@@ -125,7 +118,7 @@
         "note": ""
       },
       {
-        "title": "Arrival &amp; departure",
+        "title": "Arrival & departure",
         "body": "Your interviewer will meet you at the reception and escort you to the conference room.",
         "icon": "images/redwood-city/icons/strategy.png"
       }
