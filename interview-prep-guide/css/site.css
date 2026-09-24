@@ -886,7 +886,7 @@ section[id^="custom-"] .card.tip-card {
 }
 
 .page-amsterdam .address-layout {
-  grid-template-columns: 340px 380px;
+  grid-template-columns: 340px 480px;
   justify-content: center;
 }
 
