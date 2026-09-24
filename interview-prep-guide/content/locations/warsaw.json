@@ -5,7 +5,9 @@
   "hero": {
     "title": "Warsaw",
     "lead": "",
-    "photo": "🇵🇱 Warsaw office — photo placeholder"
+    "photo": "🇵🇱 Warsaw office — photo placeholder",
+    "photoUrl": "images/warsaw/card.webp",
+    "photoAlt": "Box Warsaw employees chatting together near the office's giant BOX letters"
   },
   "nav": [
     {
@@ -46,6 +48,8 @@
       {
         "icon": "🅿️",
         "title": "Varso Place underground parking",
+        "photoUrl": "images/warsaw/entrance.jpg",
+        "photoAlt": "Varso Place entrance and towers at dusk",
         "paragraphs": [
           {
             "type": "html",
@@ -98,6 +102,8 @@
       {
         "icon": "🚪",
         "title": "Getting to the lobby",
+        "photoUrl": "images/warsaw/lobby.jpg",
+        "photoAlt": "Reception desk in the Varso Place office lobby",
         "paragraphs": [
           {
             "type": "html",
