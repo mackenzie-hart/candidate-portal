@@ -1177,6 +1177,10 @@ footer {
   .page-location .hero.hero-single.hero-xl .hero-inner {
     grid-template-columns: 1fr;
     gap: 1rem;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
   }
 }
 
