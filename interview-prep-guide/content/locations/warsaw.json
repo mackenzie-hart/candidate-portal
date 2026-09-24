@@ -31,13 +31,14 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "<strong>Varso Tower</strong><br>Chmielna 69<br>00-801 Warsaw, Poland<br>22nd Floor",
+    "addressHtml": "<strong>Varso Tower</strong>, 22nd Floor<br>Chmielna 69, 00-801 Warsaw, Poland",
     "noteHtml": "",
-    "mapsUrl": "https://maps.google.com/?q=Varso+Tower+Chmielna+69+Warsaw",
+    "mapsUrl": "",
     "style": {
       "color": "#212121",
       "fontWeight": ""
-    }
+    },
+    "mapsEmbedUrl": "https://maps.google.com/maps?q=Varso%20Tower%20Chmielna%2069%20Warsaw&hl=en&z=16&output=embed"
   },
   "transit": {
     "heading": "Getting here",

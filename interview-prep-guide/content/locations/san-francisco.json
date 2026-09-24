@@ -35,11 +35,12 @@
     "heading": "Where to go",
     "addressHtml": "100 First Street, 17th Floor<br>San Francisco, CA 94105",
     "noteHtml": "",
-    "mapsUrl": "https://maps.google.com/?q=100+First+Street+San+Francisco+CA",
+    "mapsUrl": "",
     "style": {
       "color": "#212121",
       "fontWeight": ""
-    }
+    },
+    "mapsEmbedUrl": "https://maps.google.com/maps?q=100%20First%20Street%20San%20Francisco%20CA&hl=en&z=16&output=embed"
   },
   "arrival": {
     "heading": "When you arrive",

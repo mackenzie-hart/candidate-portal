@@ -34,13 +34,14 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "<strong>White Collar Factory</strong><br>15th–14th Floors<br>Old Street Yard<br>EC1Y 8AF",
+    "addressHtml": "<strong>White Collar Factory</strong>, 15th–14th Floors<br>Old Street Yard, EC1Y 8AF",
     "noteHtml": "",
-    "mapsUrl": "https://maps.google.com/?q=White+Collar+Factory+Old+Street+Yard+London",
+    "mapsUrl": "",
     "style": {
       "color": "#212121",
       "fontWeight": ""
-    }
+    },
+    "mapsEmbedUrl": "https://maps.google.com/maps?q=White%20Collar%20Factory%20Old%20Street%20Yard%20London&hl=en&z=16&output=embed"
   },
   "transit": {
     "heading": "Getting here",

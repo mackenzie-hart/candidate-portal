@@ -858,7 +858,7 @@ section[id^="custom-"] .card.tip-card {
 
 .address-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   align-items: stretch;
 }
@@ -879,26 +879,6 @@ section[id^="custom-"] .card.tip-card {
   height: var(--side-media-height);
   min-height: var(--side-media-height);
   border: 0;
-}
-
-@media (max-width: 720px) {
-  .address-layout { grid-template-columns: 1fr; }
-}
-
-.page-amsterdam .address-layout {
-  grid-template-columns: 1fr;
-}
-
-.page-amsterdam .address-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.page-amsterdam .address-card p[style*="margin-top"] {
-  margin-top: 0 !important;
 }
 
 /* ── Numbered steps (location pages) ── */

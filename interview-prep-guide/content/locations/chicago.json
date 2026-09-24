@@ -32,13 +32,14 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "<strong>123 N. Wacker Drive</strong><br>7th Floor<br>Chicago, IL 60606",
+    "addressHtml": "<strong>123 N. Wacker Drive</strong>, 7th Floor<br>Chicago, IL 60606",
     "noteHtml": "",
-    "mapsUrl": "https://maps.google.com/?q=123+N+Wacker+Drive+Chicago+IL",
+    "mapsUrl": "",
     "style": {
       "color": "#212121",
       "fontWeight": ""
-    }
+    },
+    "mapsEmbedUrl": "https://maps.google.com/maps?q=123%20N%20Wacker%20Drive%20Chicago%20IL&hl=en&z=16&output=embed"
   },
   "transit": {
     "heading": "Getting here",
