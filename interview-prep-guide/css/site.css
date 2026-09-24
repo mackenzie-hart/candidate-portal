@@ -1176,6 +1176,7 @@ footer {
 @media (max-width: 720px) {
   .page-location .hero.hero-single.hero-xl .hero-inner {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -1183,6 +1184,12 @@ footer {
   padding: 2.5rem 0;
   gap: 2.5rem;
   grid-template-columns: 1fr min(48%, 476px);
+}
+
+@media (max-width: 720px) {
+  .page-location .step {
+    grid-template-columns: 1fr;
+  }
 }
 
 .page-location .step-title {
