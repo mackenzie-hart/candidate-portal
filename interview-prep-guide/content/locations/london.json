@@ -47,28 +47,24 @@
     "heading": "Getting here",
     "blocks": [
       {
-        "icon": "🅿️",
-        "title": "Parking",
-        "paragraphs": [
-          {
-            "type": "list",
-            "items": [
-              "Street parking is available on Mallow Street (located behind the building).",
-              "Paid parking is available at NCP London Finsbury Square."
-            ]
-          }
-        ]
-      },
-      {
         "icon": "🚇",
-        "title": "Public transportation",
+        "title": "Parking & public transportation",
+        "photoUrl": "images/london/building-exterior.jpg",
+        "photoAlt": "Exterior of the White Collar Factory building in London",
         "paragraphs": [
           {
             "type": "list",
             "items": [
               "Old Street Station: Northern Line (2 min walk)",
-              "Liverpool Street Station: Elizabeth Line, Overground, Central, Circle, Hammersmith &amp; City, Metropolitan and National Rail Services (10–15 min walk)",
+              "Liverpool Street Station: Elizabeth Line, Overground, Central, Circle, Hammersmith & City, Metropolitan and National Rail Services (10–15 min walk)",
               "Liverpool Street also services lines to Heathrow Airport and Stansted Airport"
+            ]
+          },
+          {
+            "type": "list",
+            "items": [
+              "Street parking is available on Mallow Street (located behind the building).",
+              "Paid parking is available at NCP London Finsbury Square."
             ]
           }
         ]
@@ -85,20 +81,12 @@
       {
         "icon": "🚪",
         "title": "Getting to the lobby",
+        "photoUrl": "images/london/lobby-interior.jpg",
+        "photoAlt": "White Collar Factory lobby with concrete columns and red pendant lights",
         "paragraphs": [
           {
             "type": "html",
             "html": "When you arrive, please sign in at the reception desk on the ground floor of the White Collar Factory and state that you are visiting Box. You will be sent up to the 15th Floor where Box's reception is located."
-          }
-        ]
-      },
-      {
-        "icon": "✅",
-        "title": "Check-in",
-        "paragraphs": [
-          {
-            "type": "html",
-            "html": "Once on the 15th floor, the Box receptionist will ask you to sign in at Box and complete a visitor non-disclosure agreement, if you haven't already done so."
           }
         ]
       }
@@ -124,7 +112,7 @@
         "note": ""
       },
       {
-        "title": "Arrival &amp; departure",
+        "title": "Arrival & departure",
         "body": "After your last interview, your interviewer will walk you to the elevator.",
         "icon": "images/redwood-city/icons/strategy.png"
       }
