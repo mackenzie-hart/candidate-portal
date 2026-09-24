@@ -1262,6 +1262,10 @@ footer {
   margin-bottom: 1.5rem;
 }
 
+.page-amsterdam section h2 {
+  text-align: center;
+}
+
 /* ── Index — match Redwood City copy/layout rhythm ── */
 .page-index {
   --max-width: 1120px;
