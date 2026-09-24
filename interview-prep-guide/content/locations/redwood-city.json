@@ -35,7 +35,7 @@
   "address": {
     "heading": "Where to go",
     "addressHtml": "<strong>900 Middlefield Rd</strong><br>Redwood City, CA 94063",
-    "noteHtml": "<strong>Interview building:</strong> You will interview in <strong>900 Jefferson</strong>, which features the large Box logo in the lobby. While our mailing address references Jefferson, the employee garage is accessed via Middlefield (see parking below).",
+    "noteHtml": "",
     "mapsUrl": "",
     "mapsEmbedUrl": "https://maps.google.com/maps?q=900+Middlefield+Rd,+Redwood+City,+CA+94063&hl=en&z=16&output=embed",
     "style": {
