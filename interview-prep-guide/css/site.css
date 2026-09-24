@@ -886,12 +886,7 @@ section[id^="custom-"] .card.tip-card {
 }
 
 .page-amsterdam .address-layout {
-  grid-template-columns: 340px 480px;
-  justify-content: center;
-}
-
-@media (max-width: 720px) {
-  .page-amsterdam .address-layout { grid-template-columns: 1fr; justify-content: stretch; }
+  grid-template-columns: 1fr;
 }
 
 /* ── Numbered steps (location pages) ── */
