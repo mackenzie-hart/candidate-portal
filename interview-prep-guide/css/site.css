@@ -1185,7 +1185,7 @@ footer {
 }
 
 .page-location .step {
-  padding: 2.5rem 0;
+  padding: 1.25rem 0;
   gap: 2.5rem;
   grid-template-columns: 1fr min(48%, 476px);
 }
@@ -1273,10 +1273,12 @@ footer {
 
 .page-location section h2 {
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.page-amsterdam section h2 {
-  text-align: center;
+.page-location #transit h2,
+.page-location #arrival h2 {
+  margin-bottom: 0.5rem;
 }
 
 /* ── Index — match Redwood City copy/layout rhythm ── */
@@ -1326,10 +1328,6 @@ footer {
 }
 
 @media (max-width: 720px) {
-  .page-location section h2 {
-    text-align: center;
-  }
-
   .hero.hero-single.hero-xl .hero-text h1 {
     text-align: center;
   }
