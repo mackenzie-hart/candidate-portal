@@ -32,6 +32,34 @@ function contentPath(...parts) {
   return path.join(ROOT, 'content', ...parts);
 }
 
+/** Bold only the first comma-separated segment on line 1; other lines stay plain (floors unbold). */
+function formatAddressHtml(html) {
+  const raw = String(html ?? '').trim();
+  if (!raw || !/<br\s*\/?>/i.test(raw)) return raw;
+
+  const stripInline = (line) =>
+    line
+      .replace(/<\/?strong>/gi, '')
+      .replace(/<\/?[^>]+>/g, '')
+      .trim();
+
+  const lines = raw.split(/<br\s*\/?>/i).map(stripInline).filter(Boolean);
+  if (!lines.length) return raw;
+
+  const formatFirstLine = (text) => {
+    const comma = text.indexOf(',');
+    if (comma > 0) {
+      const first = text.slice(0, comma).trim();
+      const rest = text.slice(comma);
+      return `<strong>${esc(first)}</strong>${esc(rest)}`;
+    }
+    return `<strong>${esc(text)}</strong>`;
+  };
+
+  const formatted = lines.map((line, i) => (i === 0 ? formatFirstLine(line) : esc(line)));
+  return formatted.join('<br>');
+}
+
 function defaultFaqs() {
   return [
     {
@@ -100,6 +128,7 @@ module.exports = {
   readJson,
   writeFile,
   contentPath,
+  formatAddressHtml,
   defaultFaqs,
   defaultRegistration,
   defaultContact,

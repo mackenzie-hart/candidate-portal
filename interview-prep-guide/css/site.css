@@ -621,6 +621,10 @@ section h2 {
   object-position: center 58%;
 }
 
+.about-grid .video-embed {
+  margin-top: 0;
+}
+
 .callout {
   border-radius: var(--radius);
   padding: 1.1rem 1.3rem;
@@ -897,6 +901,16 @@ section[id^="custom-"] .card.tip-card {
 
 .step.step--text-only {
   grid-template-columns: 1fr;
+}
+
+.step-subsection + .step-subsection {
+  margin-top: 1.25rem;
+}
+
+.page-location #gettingHere .step,
+.page-location #transit .step,
+.page-location #arrival .step {
+  align-items: center;
 }
 
 .step-title {

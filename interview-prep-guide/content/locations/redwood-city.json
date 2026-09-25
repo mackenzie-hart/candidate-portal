@@ -34,9 +34,7 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "<strong>900 Middlefield Rd</strong><br>Redwood City, CA 94063",
-    "noteHtml": "",
-    "mapsUrl": "",
+    "addressHtml": "900 Middlefield Rd<br>Redwood City, CA 94063",
     "mapsEmbedUrl": "https://maps.google.com/maps?q=900+Middlefield+Rd,+Redwood+City,+CA+94063&hl=en&z=16&output=embed",
     "style": {
       "color": "#212121",
@@ -45,10 +43,10 @@
   },
   "gettingHere": {
     "heading": "Getting here",
-    "intro": "If you are driving, please review the parking instructions below. If you are taking public transportation, we are conveniently located next to the Redwood City Caltrain station.",
+    "intro": "",
     "items": [
       {
-        "title": "Parking in the garage",
+        "title": "Parking",
         "photoUrl": "images/redwood-city/garage-entrance.png",
         "photoAlt": "900 Middlefield garage entrance at the Box Redwood City HQ",
         "paragraphs": [
@@ -67,7 +65,26 @@
         ]
       },
       {
-        "title": "Taking the elevator to our lobby",
+        "title": "Public Transportation",
+        "paragraphs": [
+          {
+            "type": "html",
+            "html": "We are conveniently located next to the Redwood City Caltrain station."
+          }
+        ]
+      }
+    ],
+    "style": {
+      "color": "#212121",
+      "fontWeight": ""
+    }
+  },
+  "arrival": {
+    "heading": "When you arrive",
+    "blocks": [
+      {
+        "icon": "🚪",
+        "title": "Getting to the lobby",
         "photoUrl": "images/redwood-city/public-elevators.png",
         "photoAlt": "P3 Building A public elevators signage in the parking garage",
         "paragraphs": [
@@ -82,24 +99,7 @@
           {
             "type": "html",
             "html": "Once on the ground floor, exit the building and proceed straight to Box's lobby front doors."
-          }
-        ]
-      }
-    ],
-    "style": {
-      "color": "#212121",
-      "fontWeight": ""
-    }
-  },
-  "arrival": {
-    "heading": "When you arrive",
-    "blocks": [
-      {
-        "icon": "✅",
-        "title": "",
-        "photoUrl": "images/redwood-city/garage-elevators.png",
-        "photoAlt": "Garage elevators signage leading to the Box HQ lobby",
-        "paragraphs": [
+          },
           {
             "type": "html",
             "html": "Upon entering, check in with reception and let them know who you are meeting with first."

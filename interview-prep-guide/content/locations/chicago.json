@@ -32,7 +32,7 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "<strong>123 N. Wacker Drive</strong>, 7th Floor<br>Chicago, IL 60606",
+    "addressHtml": "123 N. Wacker Drive, 7th Floor<br>Chicago, IL 60606",
     "noteHtml": "",
     "mapsUrl": "",
     "style": {
@@ -45,14 +45,24 @@
     "heading": "Getting here",
     "blocks": [
       {
-        "icon": "🚇",
-        "title": "Parking & public transportation",
+        "icon": "🅿️",
+        "title": "Parking",
         "photoUrl": "images/chicago/wacker-entrance.jpg",
         "photoAlt": "123 North Wacker Drive building entrance",
         "paragraphs": [
           {
             "type": "html",
-            "html": "Taking public transit (CTA/Metra) or rideshare (Uber/Lyft) is recommended. There is no parking garage — we recommend using SpotHero."
+            "html": "There is no parking garage — we recommend using SpotHero."
+          }
+        ]
+      },
+      {
+        "icon": "🚇",
+        "title": "Public transportation",
+        "paragraphs": [
+          {
+            "type": "html",
+            "html": "Taking public transit (CTA/Metra) or rideshare (Uber/Lyft) is recommended."
           },
           {
             "type": "list",

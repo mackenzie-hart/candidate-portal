@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const { ROOT, esc, readJson, writeFile, contentPath } = require('./lib/utils');
+const { ROOT, esc, readJson, writeFile, contentPath, formatAddressHtml } = require('./lib/utils');
 const {
   getIndexSectionOrder,
   getLocationSectionOrder,
@@ -162,6 +162,22 @@ function renderParagraphs(block) {
     .join('\n            ');
 }
 
+function renderYoutubeEmbed(video, className = 'video-embed') {
+  if (!video?.youtubeId || video.youtubeId === 'VIDEO_ID_HERE') return '';
+  const query = video.youtubeQuery ? `?${video.youtubeQuery}` : '';
+  return `<div class="${className}">
+        <iframe
+          src="https://www.youtube.com/embed/${esc(video.youtubeId)}${esc(query)}"
+          title="${esc(video.iframeTitle || video.heading || 'YouTube video player')}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>`;
+}
+
 const FOOTER_SOCIAL_SVGS = {
   youtube:
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>',
@@ -315,21 +331,38 @@ ${intro}${body}
     </section>`;
 }
 
-function renderStepsList(items, { sectionKey, itemsKey = 'items', photoPlaceholder = false, showNumbers = true } = {}) {
-  return (items || [])
-    .map((item, i) => {
+function renderStepContent(item, index, { sectionKey, itemsKey, showNumbers }) {
+  const title =
+    buildOptions.editable && sectionKey
+      ? eText(`${sectionKey}.${itemsKey}.${index}.title`, item.title || '')
+      : esc(item.title || '');
+  const body =
+    buildOptions.editable && sectionKey
+      ? eParagraphs(`${sectionKey}.${itemsKey}.${index}.paragraphs`, item.paragraphs)
+      : renderParagraphs(item);
+  const numBadge = showNumbers
+    ? `<span class="step-num"><span class="badge-num">${index + 1}</span></span>\n              `
+    : '';
+  return `            <div class="step-title">
+              ${numBadge}<h3>${title}</h3>
+            </div>
+            <div class="step-body">
+              ${body}
+            </div>`;
+}
+
+function renderStepsList(
+  items,
+  { sectionKey, itemsKey = 'items', photoPlaceholder = false, showNumbers = true, groupTextAfterPhoto = false } = {}
+) {
+  const rendered = [];
+  const list = items || [];
+  for (let i = 0; i < list.length; i += 1) {
+    const item = list[i];
       const hasPhoto = !!item.photoUrl;
       const photo = hasPhoto
         ? `<img src="../${esc(item.photoUrl)}" alt="${esc(item.photoAlt || '')}" />`
         : '';
-      const title =
-        buildOptions.editable && sectionKey
-          ? eText(`${sectionKey}.${itemsKey}.${i}.title`, item.title || '')
-          : esc(item.title || '');
-      const body =
-        buildOptions.editable && sectionKey
-          ? eParagraphs(`${sectionKey}.${itemsKey}.${i}.paragraphs`, item.paragraphs)
-          : renderParagraphs(item);
       let photoCol = '';
       if (hasPhoto) {
         photoCol = `<div class="step-photo">${photo}</div>`;
@@ -338,22 +371,28 @@ function renderStepsList(items, { sectionKey, itemsKey = 'items', photoPlacehold
           '<div class="step-photo photo-placeholder photo-placeholder--soft"></div>';
       }
       const stepClass = photoCol ? 'step' : 'step step--text-only';
-      const numBadge = showNumbers
-        ? `<span class="step-num"><span class="badge-num">${i + 1}</span></span>\n              `
+      const nextItem = list[i + 1];
+      const shouldGroupNext =
+        groupTextAfterPhoto && hasPhoto && nextItem && !nextItem.photoUrl && !photoPlaceholder;
+      const groupedContent = shouldGroupNext
+        ? `
+            <div class="step-subsection">
+${renderStepContent(nextItem, i + 1, { sectionKey, itemsKey, showNumbers })}
+            </div>`
         : '';
-      return `        <div class="${stepClass}">
+
+      rendered.push(`        <div class="${stepClass}">
           <div>
-            <div class="step-title">
-              ${numBadge}<h3>${title}</h3>
+            <div class="step-subsection">
+${renderStepContent(item, i, { sectionKey, itemsKey, showNumbers })}
             </div>
-            <div class="step-body">
-              ${body}
-            </div>
+${groupedContent}
           </div>
           ${photoCol}
-        </div>`;
-    })
-    .join('\n');
+        </div>`);
+      if (shouldGroupNext) i += 1;
+  }
+  return rendered.join('\n');
 }
 
 function renderGettingHere(id, section) {
@@ -366,7 +405,8 @@ function renderGettingHere(id, section) {
   const steps = renderStepsList(section.items, {
     sectionKey: 'gettingHere',
     itemsKey: 'items',
-    photoPlaceholder: true,
+    showNumbers: false,
+    groupTextAfterPhoto: true,
   });
   return `
     <section id="${id}"${sectionStyleAttr(section)}>
@@ -472,11 +512,19 @@ ${photoBlock}
     (data.customSections || []).map((s, i) => [customSectionId(s), `customSections.${i}`])
   );
 
-  const welcomePhoto = data.welcome?.imageUrl
-    ? `        <div class="about-photo">
+  const welcomeMedia = data.welcome?.videoYoutubeId
+    ? renderYoutubeEmbed(
+        {
+          youtubeId: data.welcome.videoYoutubeId,
+          iframeTitle: data.welcome.videoIframeTitle || 'Video',
+        },
+        'video-embed about-video-embed'
+      )
+    : data.welcome?.imageUrl
+      ? `        <div class="about-photo">
           <img src="${esc(data.welcome.imageUrl)}" alt="${esc(data.welcome.imageAlt || '')}" />
         </div>`
-    : `        <div class="photo-placeholder photo-placeholder--soft" aria-hidden="true"></div>`;
+      : `        <div class="photo-placeholder photo-placeholder--soft" aria-hidden="true"></div>`;
 
   const sectionHtml = {
     welcome: `
@@ -489,7 +537,7 @@ ${photoBlock}
           </p>
           <a class="btn" href="${esc(data.welcome.buttonUrl)}" target="_blank" rel="noopener noreferrer">${buildOptions.editable ? eText('welcome.buttonText', data.welcome.buttonText || '') : esc(data.welcome.buttonText)}</a>
         </div>
-${welcomePhoto}
+${welcomeMedia}
       </div>
     </section>`,
 
@@ -560,15 +608,7 @@ ${navLinks}
       <p class="lead">${buildOptions.editable ? eText('hero.lead', data.hero.lead || '') : esc(data.hero.lead).replace(/\n/g, '<br />')}</p>
       ${
         data.video?.youtubeId && data.video.youtubeId !== 'VIDEO_ID_HERE'
-          ? `<div class="hero-image video-embed">
-        <iframe
-          src="https://www.youtube.com/embed/${esc(data.video.youtubeId)}"
-          title="${esc(data.video.iframeTitle || data.video.heading || 'Video')}"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </div>`
+          ? renderYoutubeEmbed(data.video, 'hero-image video-embed')
           : `<div class="hero-image photo-placeholder" aria-hidden="true"></div>`
       }
     </div>
@@ -631,7 +671,7 @@ function buildLocation(data, options = {}) {
     <section id="transit"${sectionStyleAttr(data.transit)}>
       <h2>${sectionHeading('transit.heading', data.transit.heading)}</h2>
       <div class="steps">
-${renderStepsList(data.transit.blocks, { sectionKey: 'transit', itemsKey: 'blocks', showNumbers: false })}
+${renderStepsList(data.transit.blocks, { sectionKey: 'transit', itemsKey: 'blocks', showNumbers: false, groupTextAfterPhoto: true })}
       </div>
     </section>`
     : '';
@@ -663,7 +703,11 @@ ${renderInfoBlocks(data.arrival.blocks, false, 'arrival')}
       <div class="${addressLayoutClass}">
         <div class="address-card">
           <p class="address-line">
-            ${buildOptions.editable ? eHtml('address.addressHtml', data.address.addressHtml) : data.address.addressHtml}
+            ${
+              buildOptions.editable
+                ? eHtml('address.addressHtml', data.address.addressHtml)
+                : formatAddressHtml(data.address.addressHtml)
+            }
           </p>
 ${addressNote}${mapsLink}
         </div>

@@ -3,7 +3,7 @@
   "title": "New York City — Interview Day Guide",
   "barLabel": "New York City",
   "hero": {
-    "title": "New York",
+    "title": "New York City",
     "lead": "",
     "photo": "🗽 NYC office — photo placeholder",
     "photoUrl": "images/new-york-city/card.webp",
@@ -33,7 +33,7 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "<strong>386 Park Ave S</strong>, 3rd Floor<br>New York, NY 10016",
+    "addressHtml": "386 Park Ave S, 3rd Floor<br>New York, NY 10016",
     "noteHtml": "",
     "mapsUrl": "",
     "style": {

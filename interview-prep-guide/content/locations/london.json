@@ -34,7 +34,7 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "<strong>White Collar Factory</strong>, 15th–14th Floors<br>Old Street Yard, EC1Y 8AF",
+    "addressHtml": "White Collar Factory, 15th–14th Floors<br>Old Street Yard<br>London EC1Y 8AF",
     "noteHtml": "",
     "mapsUrl": "",
     "style": {
@@ -47,10 +47,23 @@
     "heading": "Getting here",
     "blocks": [
       {
-        "icon": "🚇",
-        "title": "Parking & public transportation",
+        "icon": "🅿️",
+        "title": "Parking",
         "photoUrl": "images/london/building-exterior.jpg",
         "photoAlt": "Exterior of the White Collar Factory building in London",
+        "paragraphs": [
+          {
+            "type": "list",
+            "items": [
+              "Street parking is available on Mallow Street (located behind the building).",
+              "Paid parking is available at NCP London Finsbury Square."
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "🚇",
+        "title": "Public transportation",
         "paragraphs": [
           {
             "type": "list",
@@ -58,13 +71,6 @@
               "Old Street Station: Northern Line (2 min walk)",
               "Liverpool Street Station: Elizabeth Line, Overground, Central, Circle, Hammersmith & City, Metropolitan and National Rail Services (10–15 min walk)",
               "Liverpool Street also services lines to Heathrow Airport and Stansted Airport"
-            ]
-          },
-          {
-            "type": "list",
-            "items": [
-              "Street parking is available on Mallow Street (located behind the building).",
-              "Paid parking is available at NCP London Finsbury Square."
             ]
           }
         ]

@@ -33,7 +33,7 @@
   ],
   "address": {
     "heading": "Where to go",
-    "addressHtml": "<strong>WeWork, 5th Floor</strong><br>Stadhouderskade 5, 1054 ES Amsterdam",
+    "addressHtml": "WeWork, 5th Floor<br>Stadhouderskade 5<br>1054 ES Amsterdam",
     "noteHtml": "",
     "mapsUrl": "",
     "mapsEmbedUrl": "https://maps.google.com/maps?q=Stadhouderskade+5+Amsterdam&hl=en&z=16&output=embed",
@@ -46,10 +46,24 @@
     "heading": "Getting here",
     "blocks": [
       {
-        "icon": "🚇",
-        "title": "Parking & public transportation",
+        "icon": "🅿️",
+        "title": "Parking",
         "photoUrl": "images/amsterdam/office.webp",
         "photoAlt": "Exterior of the Box Amsterdam WeWork office building",
+        "paragraphs": [
+          {
+            "type": "list",
+            "items": [
+              "Car paid parking nearby: Nassaukade, 946",
+              "Q-Park Byzantium (1 minute drive)",
+              "Bike parking: Overtoom 2-4-6, hoek Nassaukade 391, 393-394, 1054 AE Amsterdam"
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "🚇",
+        "title": "Public transportation",
         "paragraphs": [
           {
             "type": "list",
@@ -58,14 +72,6 @@
               "Bus lines 284, 288 (1 minute walk)",
               "A10 (10 minute drive)",
               "OV-Fiets (2 minute walk)"
-            ]
-          },
-          {
-            "type": "list",
-            "items": [
-              "Car paid parking nearby: Nassaukade, 946",
-              "Q-Park Byzantium (1 minute drive)",
-              "Bike parking: Overtoom 2-4-6, hoek Nassaukade 391, 393-394, 1054 AE Amsterdam"
             ]
           }
         ]
