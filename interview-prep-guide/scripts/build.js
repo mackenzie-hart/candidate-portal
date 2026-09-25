@@ -722,7 +722,7 @@ ${regCards}
 
   <nav class="page-nav page-nav--location" aria-label="Location sections">
     <div class="page-nav-inner">
-      <a class="back-link page-nav-back" href="../index.html">← Back to Main Page</a>
+      <a class="back-link page-nav-back" href="../index.html"><span class="back-link-arrow" aria-hidden="true">←</span><span class="back-link-text">Back to Main Page</span></a>
       <div class="page-nav-links">
 ${navLinks}
       </div>
