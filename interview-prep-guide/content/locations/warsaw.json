@@ -6,8 +6,8 @@
     "title": "Warsaw",
     "lead": "",
     "photo": "🇵🇱 Warsaw office — photo placeholder",
-    "photoUrl": "images/warsaw/card.webp",
-    "photoAlt": "Box Warsaw employees chatting together near the office's giant BOX letters"
+    "photoUrl": "images/warsaw/skyline-view.jpg",
+    "photoAlt": "Two Box Warsaw employees smiling on an observation deck overlooking the city"
   },
   "nav": [
     {
@@ -53,16 +53,22 @@
         "paragraphs": [
           {
             "type": "html",
-            "html": "<strong>Address:</strong> Chmielna 71, Warszawa — located on levels -1 and -2 in Varso 1 and on level -1 in Varso 2."
+            "html": "Address: Chmielna 71, Warszawa — located on levels -1 and -2 in Varso 1 and on level -1 in Varso 2."
           },
           {
             "type": "list",
             "items": [
               "Monday–Friday 7:00–18:00: 10 PLN/hour",
-              "Monday–Friday 18:00–7:00: 7 PLN/hour",
-              "Pay at automatic cash registers or by card/cash at reception in the main lobby",
-              "Head to the \"F\" elevators to reach the ground floor, then right to reception"
+              "Monday–Friday 18:00–7:00: 7 PLN/hour"
             ]
+          },
+          {
+            "type": "html",
+            "html": "The parking ticket can be paid with a card at the automatic cash register or by card/cash at reception in the main lobby."
+          },
+          {
+            "type": "html",
+            "html": "Head to the \"F\" elevators to reach the \"0\" ground floor, then right to reception."
           }
         ]
       },
@@ -73,9 +79,8 @@
           {
             "type": "list",
             "items": [
-              "Head to the main Varso entrance at the Chmielna/Jana Pawła II intersection",
-              "Use your QR code to access the elevators on the right of the main entrance (left of the reception)",
-              "The QR code will direct you to Box reception on the 22nd floor"
+              "Head to the main Varso entrance at the Chmielna/Jana Pawła II intersection.",
+              "Use your QR code to access the elevators on the right of the main entrance (left of the reception). The QR code will direct you to Box reception on the 22nd floor."
             ]
           }
         ]
@@ -102,18 +107,20 @@
       {
         "icon": "🚪",
         "title": "Getting to the lobby",
-        "photoUrl": "images/warsaw/lobby.jpg",
-        "photoAlt": "Reception desk in the Varso Place office lobby",
+        "photoUrl": "images/warsaw/reception-turnstiles.png",
+        "photoAlt": "Reception desk with turnstiles near the escalators at Varso Place",
         "paragraphs": [
           {
             "type": "html",
-            "html": "Head to the main Varso entrance at the Chmielna/Jana Pawła II intersection. Check in with the Varso Tower ground floor reception; present your ID and let them know you are there for an interview with Box. The receptionist will provide you with a printed QR code and direct you to the appropriate elevators to access the 22nd floor where Box is located."
+            "html": "Head to the main Varso entrance at the Chmielna/Jana Pawła II intersection. Please use your QR code to access the elevators on the right of the main entrance (left to the reception). The QR code will automatically direct you to your reception at the 22nd floor."
           }
         ]
       },
       {
         "icon": "✅",
         "title": "Check-in",
+        "photoUrl": "images/warsaw/lounge.png",
+        "photoAlt": "Lounge seating area with city views at Varso Place",
         "paragraphs": [
           {
             "type": "html",
@@ -143,7 +150,7 @@
         "note": ""
       },
       {
-        "title": "Arrival &amp; departure",
+        "title": "Arrival & departure",
         "body": "Please keep the printed QR code you received from the Varso Tower ground floor reception with you, as you may need it to exit through the gates on the ground floor.",
         "icon": "images/redwood-city/icons/strategy.png"
       }
