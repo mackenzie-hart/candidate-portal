@@ -20,8 +20,8 @@
   "welcome": {
     "heading": "About us",
     "intro": "Box powers how the world works together — connecting people with their most important information through secure, intelligent content management. Our interviews are a two-way conversation: we want to learn about you, and we're here to answer any questions you have about Life at Box!",
-    "imageUrl": "images/index/about-team.jpg",
-    "imageAlt": "Box employees celebrating together with blue balloons around a large BOX sign",
+    "videoYoutubeId": "DtrRSDMTrQQ",
+    "videoIframeTitle": "A message from Aaron Levie, Box CEO",
     "style": {
       "color": "#212121",
       "fontWeight": ""
@@ -134,9 +134,10 @@
   "video": {
     "heading": "Hear from our CEO",
     "intro": "Aaron Levie, Box co-founder and CEO, on what we're building and why it matters.",
-    "youtubeId": "DtrRSDMTrQQ",
+    "youtubeId": "pAMyMIDi-Ak",
+    "youtubeQuery": "si=hVLgdh_Z5LA01tsD",
     "caption": "",
-    "iframeTitle": "A message from Aaron Levie, Box CEO",
+    "iframeTitle": "YouTube video player",
     "style": {
       "color": "#212121",
       "fontWeight": ""
