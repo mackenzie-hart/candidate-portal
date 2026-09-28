@@ -658,9 +658,17 @@ function buildLocation(data, options = {}) {
             allowfullscreen
           ></iframe>
         </div>`
+    : data.address.photoUrl
+      ? `        <div class="step-photo">
+          <img src="../${esc(data.address.photoUrl)}" alt="${esc(data.address.photoAlt || '')}" />
+        </div>`
     : '';
 
-  const addressLayoutClass = mapsEmbedUrl ? 'address-layout' : '';
+  const addressLayoutClass = data.address.photoUrl
+    ? 'step address-photo-step'
+    : mapsEmbedUrl
+      ? 'address-layout'
+      : '';
 
   const regCards = data.registration
     ? (data.registration.cards || []).map((c, i) => renderTipCard(c, i, 'registration')).join('\n')
@@ -676,8 +684,21 @@ ${renderStepsList(data.transit.blocks, { sectionKey: 'transit', itemsKey: 'block
     </section>`
     : '';
 
+  const zoomBody = data.zoom?.layout === 'plain'
+    ? buildOptions.editable
+      ? eParagraphs('zoom.blocks.0.paragraphs', data.zoom.blocks?.[0]?.paragraphs || [])
+      : (data.zoom.blocks || []).map(renderParagraphs).join('\n')
+    : '';
   const zoomSection = data.zoom
-    ? `
+    ? data.zoom.layout === 'plain'
+      ? `
+    <section id="zoom"${sectionStyleAttr(data.zoom)}>
+      <h2>${sectionHeading('zoom.heading', data.zoom.heading)}</h2>
+      <div class="section-copy">
+        ${zoomBody}
+      </div>
+    </section>`
+      : `
     <section id="zoom"${sectionStyleAttr(data.zoom)}>
       <h2>${sectionHeading('zoom.heading', data.zoom.heading)}</h2>
       <div class="prep-grid">

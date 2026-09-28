@@ -890,6 +890,37 @@ section[id^="custom-"] .card.tip-card {
   border: 0;
 }
 
+.address-photo-step {
+  align-items: center;
+  padding: 0;
+}
+
+.address-photo-step .address-card {
+  align-self: center;
+}
+
+.address-photo-step .step-photo img {
+  object-position: top center;
+}
+
+.section-copy {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.section-copy p {
+  margin-bottom: 0.85rem;
+}
+
+.section-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.page-virtual #zoom .section-copy {
+  text-align: center;
+}
+
 /* ── Numbered steps (location pages) ── */
 .steps { display: flex; flex-direction: column; }
 
