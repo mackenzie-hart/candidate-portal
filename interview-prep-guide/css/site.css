@@ -1367,6 +1367,11 @@ footer {
 
 .page-index section h2 {
   margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.page-index #welcome h2 {
+  text-align: left;
 }
 
 .page-index .section-intro,

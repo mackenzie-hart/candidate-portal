@@ -119,8 +119,8 @@
       {
         "icon": "✅",
         "title": "Check-in",
-        "photoUrl": "images/warsaw/lounge.png",
-        "photoAlt": "Lounge seating area with city views at Varso Place",
+        "photoUrl": "images/warsaw/check-in-lobby.jpg",
+        "photoAlt": "Box Warsaw lobby with reception desk, seating, chandeliers, and Box wall logo",
         "paragraphs": [
           {
             "type": "html",

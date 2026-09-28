@@ -81,7 +81,7 @@
   },
   "links": {
     "heading": "Explore",
-    "intro": "Resources to help you learn about Box before your interview.",
+    "intro": "",
     "items": [
       {
         "url": "https://www.box.com/about-us",
@@ -293,6 +293,10 @@
       {
         "question": "Do I need to sign a Non-Disclosure Agreement (NDA) before my interview?",
         "answer": "Before your scheduled interview, please ensure that you electronically sign our NDA using Box Sign through the link provided by your Recruiting Coordinator. All candidates are required to sign in order to begin their interview. If you have any questions regarding the NDA form, please reach out to your Recruiting Coordinator."
+      },
+      {
+        "question": "Am I able to use any AI tools during the hiring process?",
+        "answer": "We are an AI-first company but at Box, AI is not a replacement for critical thinking, creativity, or human-to-human collaboration. Unless specified, use of AI tools is not permitted during live interviews. If your interview loop ever includes an interview where AI or LLM usage is permitted, we will let you know ahead of time. Any unauthorized use of AI or LLMs during interviews may result in disqualification from the hiring process. You can learn more about AI during our interview process <a href=\"https://careers.box.com/en/how-we-hire/ai-in-our-hiring-process/\" target=\"_blank\" rel=\"noopener noreferrer\">here</a> or reach out to your recruiter."
       }
     ],
     "style": {
