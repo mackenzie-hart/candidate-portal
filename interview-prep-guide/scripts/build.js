@@ -689,14 +689,23 @@ ${renderStepsList(data.transit.blocks, { sectionKey: 'transit', itemsKey: 'block
       ? eParagraphs('zoom.blocks.0.paragraphs', data.zoom.blocks?.[0]?.paragraphs || [])
       : (data.zoom.blocks || []).map(renderParagraphs).join('\n')
     : '';
+  const zoomHasPhoto = data.zoom?.layout === 'plain' && !!data.zoom.photoUrl;
+  const zoomCopy = `<div class="section-copy">
+        ${zoomBody}
+      </div>`;
   const zoomSection = data.zoom
     ? data.zoom.layout === 'plain'
       ? `
     <section id="zoom"${sectionStyleAttr(data.zoom)}>
       <h2>${sectionHeading('zoom.heading', data.zoom.heading)}</h2>
-      <div class="section-copy">
-        ${zoomBody}
-      </div>
+      ${
+        zoomHasPhoto
+          ? `<div class="zoom-photo-layout">
+        <div class="step-photo"><img src="../${esc(data.zoom.photoUrl)}" alt="${esc(data.zoom.photoAlt || '')}" /></div>
+        ${zoomCopy}
+      </div>`
+          : zoomCopy
+      }
     </section>`
       : `
     <section id="zoom"${sectionStyleAttr(data.zoom)}>

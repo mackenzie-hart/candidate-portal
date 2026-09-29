@@ -1458,3 +1458,21 @@ footer {
     border: 0;
   }
 }
+
+/* ── Zoom "plain" section with a photo to the left of the copy ── */
+.zoom-photo-layout {
+  display: grid;
+  grid-template-columns: min(48%, 476px) 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.page-virtual #zoom .zoom-photo-layout .section-copy {
+  text-align: left;
+}
+
+@media (max-width: 720px) {
+  .zoom-photo-layout {
+    grid-template-columns: 1fr;
+  }
+}

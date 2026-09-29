@@ -57,7 +57,9 @@
       "color": "#212121",
       "fontWeight": ""
     },
-    "layout": "plain"
+    "layout": "plain",
+    "photoUrl": "images/virtual/box-ai.png",
+    "photoAlt": "Illustration of Box AI connecting to documents, spreadsheets, and other AI tools"
   },
   "contact": {
     "heading": "Questions?",
