@@ -16,7 +16,7 @@
     },
     {
       "id": "transit",
-      "label": "Parking & transit"
+      "label": "Parking and transit"
     },
     {
       "id": "arrival",
@@ -124,7 +124,7 @@
         "note": ""
       },
       {
-        "title": "Arrival & departure",
+        "title": "Arrival and departure",
         "body": "Your interviewer will meet you at the reception and escort you to the conference room.",
         "icon": "images/redwood-city/icons/strategy.png"
       }

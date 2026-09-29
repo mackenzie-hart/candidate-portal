@@ -15,7 +15,7 @@
     },
     {
       "id": "transit",
-      "label": "Parking & transit"
+      "label": "Parking and transit"
     },
     {
       "id": "arrival",
@@ -99,7 +99,7 @@
         "note": ""
       },
       {
-        "title": "Arrival &amp; departure",
+        "title": "Arrival and departure",
         "body": "Someone will lead you up to the 24th floor where you will sign in with Box reception.",
         "icon": "images/redwood-city/icons/strategy.png"
       }

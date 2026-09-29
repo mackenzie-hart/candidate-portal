@@ -16,7 +16,7 @@
     },
     {
       "id": "transit",
-      "label": "Parking & transit"
+      "label": "Parking and transit"
     },
     {
       "id": "arrival",
@@ -150,7 +150,7 @@
         "note": ""
       },
       {
-        "title": "Arrival & departure",
+        "title": "Arrival and departure",
         "body": "Please keep the printed QR code you received from the Varso Tower ground floor reception with you, as you may need it to exit through the gates on the ground floor.",
         "icon": "images/redwood-city/icons/strategy.png"
       }

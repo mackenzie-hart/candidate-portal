@@ -17,7 +17,7 @@
     },
     {
       "id": "transit",
-      "label": "Parking & transit"
+      "label": "Parking and transit"
     },
     {
       "id": "arrival",
@@ -118,7 +118,7 @@
         "note": ""
       },
       {
-        "title": "Arrival & departure",
+        "title": "Arrival and departure",
         "body": "After your last interview, your interviewer will walk you to the elevator.",
         "icon": "images/redwood-city/icons/strategy.png"
       }

@@ -16,7 +16,7 @@
     },
     {
       "id": "transit",
-      "label": "Parking & transit"
+      "label": "Parking and transit"
     },
     {
       "id": "arrival",
@@ -79,7 +79,7 @@
         "note": ""
       },
       {
-        "title": "Arrival & departure",
+        "title": "Arrival and departure",
         "body": "Return your badge at the front desk when leaving.",
         "icon": "images/redwood-city/icons/strategy.png"
       }

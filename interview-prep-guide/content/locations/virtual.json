@@ -16,7 +16,7 @@
     },
     {
       "id": "zoom",
-      "label": "AI Notetakers"
+      "label": "AI notetakers"
     },
     {
       "id": "contact",
@@ -36,11 +36,11 @@
     "photoAlt": "Example calendar invite showing where to find the Zoom meeting link"
   },
   "zoom": {
-    "heading": "AI Notetakers",
+    "heading": "AI notetakers",
     "blocks": [
       {
         "icon": "🤖",
-        "title": "AI Notetakers",
+        "title": "AI notetakers",
         "paragraphs": [
           {
             "type": "html",

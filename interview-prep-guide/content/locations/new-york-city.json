@@ -16,7 +16,7 @@
     },
     {
       "id": "transit",
-      "label": "Parking & transit"
+      "label": "Parking and transit"
     },
     {
       "id": "arrival",
@@ -107,7 +107,7 @@
         "note": ""
       },
       {
-        "title": "Arrival &amp; departure",
+        "title": "Arrival and departure",
         "body": "Your host will escort you to the interview area. Sign out at reception when you are finished.",
         "icon": "images/redwood-city/icons/strategy.png"
       }
