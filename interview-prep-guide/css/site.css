@@ -1471,6 +1471,12 @@ footer {
   text-align: left;
 }
 
+.zoom-photo-plain {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media (max-width: 720px) {
   .zoom-photo-layout {
     grid-template-columns: 1fr;

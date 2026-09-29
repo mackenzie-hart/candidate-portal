@@ -701,7 +701,7 @@ ${renderStepsList(data.transit.blocks, { sectionKey: 'transit', itemsKey: 'block
       ${
         zoomHasPhoto
           ? `<div class="zoom-photo-layout">
-        <div class="step-photo"><img src="../${esc(data.zoom.photoUrl)}" alt="${esc(data.zoom.photoAlt || '')}" /></div>
+        <img class="zoom-photo-plain" src="../${esc(data.zoom.photoUrl)}" alt="${esc(data.zoom.photoAlt || '')}" />
         ${zoomCopy}
       </div>`
           : zoomCopy
