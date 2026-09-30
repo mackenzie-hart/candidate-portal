@@ -94,6 +94,35 @@
             "html": "City parking spots around the building (pay in parking meter or via Skycash/your bank app — mobi Parking)."
           }
         ]
+      },
+      {
+        "icon": "🚇",
+        "title": "Public transportation",
+        "paragraphs": [
+          {
+            "type": "html",
+            "html": "<strong>Dworzec Centralny:</strong>"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Bus: 100, 117, 127, 128, 131, 158, 160, 174, 175, 200, 504, 507, 517, 519, 521, 522, 525",
+              "Tram: 7, 9, 17, 22, 33, 36, 74, 78, 79",
+              "Szybka Kolej Miejska (SKM - Fast Urban Railway)"
+            ]
+          },
+          {
+            "type": "html",
+            "html": "<strong>Metro:</strong>"
+          },
+          {
+            "type": "list",
+            "items": [
+              "M1 - Centrum",
+              "M2 - Rondo ONZ"
+            ]
+          }
+        ]
       }
     ],
     "style": {
@@ -107,8 +136,8 @@
       {
         "icon": "🚪",
         "title": "Getting to the lobby",
-        "photoUrl": "images/warsaw/reception-turnstiles.png",
-        "photoAlt": "Reception desk with turnstiles near the escalators at Varso Place",
+        "photoUrl": "images/warsaw/varso-lobby.webp",
+        "photoAlt": "Varso Tower lobby with turnstiles, colorful wall panels, and indoor tree",
         "paragraphs": [
           {
             "type": "html",
