@@ -67,13 +67,13 @@
           {
             "type": "list",
             "items": [
-              "Washington & Wells (4 min walk) — Pink, Brown, Purple, and Orange lines",
-              "Clark & Lake (10 min walk) — Pink, Brown, Purple, Orange, Blue, and Green lines",
-              "Washington (8 min walk) — Blue line",
-              "Clinton (8 min walk) — Pink and Green lines",
-              "Wacker & Randolph bus stop (1 min walk)",
-              "Union Station — approximately 7 minute walk (5 blocks)",
-              "Ogilvie Station — approximately 5 minute walk (2 blocks)"
+              "Washington & Wells (4 min walk): Pink, Brown, Purple, and Orange lines",
+              "Clark & Lake (10 min walk): Pink, Brown, Purple, Orange, Blue, and Green lines",
+              "Washington (8 min walk): Blue line",
+              "Clinton (8 min walk): Pink and Green lines",
+              "Wacker & Randolph bus stop: 1 min walk",
+              "Union Station: approximately 7 minute walk (5 blocks)",
+              "Ogilvie Station: approximately 5 minute walk (2 blocks)"
             ]
           }
         ]
