@@ -125,8 +125,9 @@ function buildIndexNav(sectionOrder, data) {
   getIndexCustomSections(data).forEach((s) => {
     labels[customSectionId(s)] = s.navLabel || s.heading || 'More';
   });
-  const links = sectionOrder.map((id) => `      <a href="#${id.replace('custom:', 'custom-')}">${labels[id] || id}</a>`);
-  return ['      <a href="#top">Video</a>', ...links].join('\n');
+  return sectionOrder
+    .map((id) => `      <a href="#${id.replace('custom:', 'custom-')}">${labels[id] || id}</a>`)
+    .join('\n');
 }
 
 function buildLocationNav(sectionOrder, data) {

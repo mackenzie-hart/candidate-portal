@@ -47,79 +47,88 @@
     "blocks": [
       {
         "icon": "🅿️",
-        "title": "Varso Place underground parking",
+        "title": "Varso Place Underground Parking",
         "photoUrl": "images/warsaw/entrance.jpg",
         "photoAlt": "Varso Place entrance and towers at dusk",
         "paragraphs": [
           {
             "type": "html",
-            "html": "Address: Chmielna 71, Warszawa — located on levels -1 and -2 in Varso 1 and on level -1 in Varso 2."
+            "html": "Address: Chmielna 71, Warszawa"
+          },
+          {
+            "type": "html",
+            "html": "Located on levels -1 and -2 in Varso 1 (Varso 1) and level -1 in Varso 2 (Varso 2)."
+          },
+          {
+            "type": "html",
+            "html": "Parking rates:"
           },
           {
             "type": "list",
             "items": [
-              "Monday–Friday 7:00–18:00: 10 PLN/hour",
-              "Monday–Friday 18:00–7:00: 7 PLN/hour"
+              "Monday–Friday, 7:00–18:00: 10 PLN/hour",
+              "Monday–Friday, 18:00–7:00: 7 PLN/hour"
             ]
           },
           {
             "type": "html",
-            "html": "The parking ticket can be paid with a card at the automatic cash register or by card/cash at reception in the main lobby."
+            "html": "The parking ticket can be paid by card at the automatic payment machine (automatyczny kasjer) or by card/cash at reception in the main lobby."
           },
           {
             "type": "html",
-            "html": "Head to the \"F\" elevators to reach the \"0\" ground floor, then right to reception."
+            "html": "To reach the ground floor, take the “F” elevators (winda F) to floor 0 (parter), then turn right toward reception."
           }
         ]
       },
       {
         "icon": "🅿️",
-        "title": "Private car park P-35",
+        "title": "Private Car Park P-35",
         "paragraphs": [
           {
             "type": "list",
             "items": [
-              "Head to the main Varso entrance at the Chmielna/Jana Pawła II intersection.",
-              "Use your QR code to access the elevators on the right of the main entrance (left of the reception). The QR code will direct you to Box reception on the 22nd floor."
+              "Head to the main Varso entrance at the Chmielna/Jana Pawła II intersection (róg ul. Chmielnej i al. Jana Pawła II).",
+              "Use your QR code to access the elevators on the right of the main entrance, to the left of reception.",
+              "The QR code will direct you to Box Reception (recepcja Box) on the 22nd floor."
             ]
           }
         ]
       },
       {
         "icon": "🚗",
-        "title": "Street parking",
+        "title": "Street Parking",
         "paragraphs": [
           {
             "type": "html",
-            "html": "City parking spots around the building (pay in parking meter or via Skycash/your bank app — mobi Parking)."
+            "html": "Street parking is available around the building. Payment can be made at a parking meter (parkomat) or via SkyCash / your bank’s mobile parking app (mobiParking)."
           }
         ]
       },
       {
         "icon": "🚇",
-        "title": "Public transportation",
+        "title": "Public Transportation",
         "paragraphs": [
           {
             "type": "html",
-            "html": "<strong>Dworzec Centralny:</strong>"
+            "html": "Warsaw Central Station (Dworzec Centralny):"
           },
           {
             "type": "list",
             "items": [
-              "Bus: 100, 117, 127, 128, 131, 158, 160, 174, 175, 200, 504, 507, 517, 519, 521, 522, 525",
-              "Tram: 7, 9, 17, 22, 33, 36, 74, 78, 79",
-              "Szybka Kolej Miejska (SKM - Fast Urban Railway)"
+              "Bus (autobus): 100, 117, 127, 128, 131, 158, 160, 174, 175, 200, 504, 507, 517, 519, 521, 522, 525",
+              "Tram (tramwaj): 7, 9, 17, 22, 33, 36, 74, 78, 79",
+              "Fast Urban Railway (Szybka Kolej Miejska / SKM)"
             ]
           },
           {
             "type": "html",
-            "html": "<strong>Metro:</strong>"
+            "html": "Metro (metro):"
           },
           {
             "type": "list",
             "items": [
-              "M1 - Centrum",
-              "M2 - Rondo ONZ"
+              "M1: Centrum",
+              "M2: Rondo ONZ"
             ]
           }
         ]
