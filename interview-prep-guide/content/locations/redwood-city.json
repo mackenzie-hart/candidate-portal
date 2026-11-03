@@ -102,7 +102,7 @@
           },
           {
             "type": "html",
-            "html": "Upon entering, check in with reception and let them know who you are meeting with first."
+            "html": "Upon entering, check in with reception and let them know who you are meeting with first. You will be asked to input their name into our check-in software (Envoy) at the tablets at the front desk so that they are notified of your arrival."
           },
           {
             "type": "html",
@@ -132,9 +132,9 @@
         "note": ""
       },
       {
-        "title": "Laptop",
+        "title": "",
         "icon": "images/redwood-city/icons/all-devices.png",
-        "body": "Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiting partners know.",
+        "body": "<strong>Laptop:</strong> Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiter know.<br><br><strong>Wi-fi:</strong> After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password.",
         "note": ""
       }
     ],
