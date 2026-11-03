@@ -139,7 +139,7 @@
       },
       {
         "title": "Wi-fi",
-        "icon": "images/virtual/wifi.png",
+        "icon": "images/redwood-city/icons/wifi.png",
         "body": "After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password.",
         "note": ""
       }
