@@ -132,9 +132,15 @@
         "note": ""
       },
       {
-        "title": "",
+        "title": "Laptop",
         "icon": "images/redwood-city/icons/all-devices.png",
-        "body": "<strong>Laptop:</strong> Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiter know.<br><br><strong>Wi-fi:</strong> After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password.",
+        "body": "Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiter know.",
+        "note": ""
+      },
+      {
+        "title": "Wi-fi",
+        "icon": "images/virtual/wifi.png",
+        "body": "After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password.",
         "note": ""
       }
     ],
