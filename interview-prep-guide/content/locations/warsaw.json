@@ -47,17 +47,17 @@
     "blocks": [
       {
         "icon": "🅿️",
-        "title": "Varso Place Underground Parking",
+        "title": "Varso Place underground parking",
         "photoUrl": "images/warsaw/entrance.jpg",
         "photoAlt": "Varso Place entrance and towers at dusk",
         "paragraphs": [
           {
             "type": "html",
-            "html": "Address: Chmielna 71, Warszawa"
+            "html": "<b>Address:</b> Chmielna 71, Warszawa"
           },
           {
             "type": "html",
-            "html": "Located on levels -1 and -2 in Varso 1 (Varso 1) and level -1 in Varso 2 (Varso 2)."
+            "html": "Located on levels -1 and -2 in Varso 1 and level -1 in Varso 2."
           },
           {
             "type": "html",
@@ -76,13 +76,13 @@
           },
           {
             "type": "html",
-            "html": "To reach the ground floor, take the “F” elevators (winda F) to floor 0 (parter), then turn right toward reception."
+            "html": "To reach the ground floor, take the “F” elevators to floor 0, then turn right toward reception."
           }
         ]
       },
       {
         "icon": "🅿️",
-        "title": "Private Car Park P-35",
+        "title": "Private car park P-35",
         "paragraphs": [
           {
             "type": "list",
@@ -96,33 +96,33 @@
       },
       {
         "icon": "🚗",
-        "title": "Street Parking",
+        "title": "Street parking",
         "paragraphs": [
           {
             "type": "html",
-            "html": "Street parking is available around the building. Payment can be made at a parking meter (parkomat) or via SkyCash / your bank’s mobile parking app (mobiParking)."
+            "html": "Street parking is available around the building. Payment can be made at a parking meter or via SkyCash / your bank’s mobile parking app (mobiParking)."
           }
         ]
       },
       {
         "icon": "🚇",
-        "title": "Public Transportation",
+        "title": "Public transportation",
         "paragraphs": [
           {
             "type": "html",
-            "html": "Warsaw Central Station (Dworzec Centralny):"
+            "html": "<b>Warsaw Central Station (Dworzec Centralny):</b>"
           },
           {
             "type": "list",
             "items": [
-              "Bus (autobus): 100, 117, 127, 128, 131, 158, 160, 174, 175, 200, 504, 507, 517, 519, 521, 522, 525",
-              "Tram (tramwaj): 7, 9, 17, 22, 33, 36, 74, 78, 79",
+              "Bus: 100, 117, 127, 128, 131, 158, 160, 174, 175, 200, 504, 507, 517, 519, 521, 522, 525",
+              "Tram: 7, 9, 17, 22, 33, 36, 74, 78, 79",
               "Fast Urban Railway (Szybka Kolej Miejska / SKM)"
             ]
           },
           {
             "type": "html",
-            "html": "Metro (metro):"
+            "html": "Metro:"
           },
           {
             "type": "list",
@@ -162,7 +162,7 @@
         "paragraphs": [
           {
             "type": "html",
-            "html": "Once you arrive at the 22nd floor, please use the tablets available at the reception desk to register as a Box guest and select the name of your Recruiting Coordinator. You may be asked to sign the NDA again. Your coordinator will meet you in the lobby and help you get started with your interviews."
+            "html": "Once you arrive at the 22nd floor, check in with reception and let them know who you are meeting with first. You will be asked to input their name into our check-in software (Envoy) at the tablets at the front desk so that they are notified of your arrival. You may be asked to sign the NDA again. Your coordinator will meet you in the lobby and help you get started with your interviews."
           }
         ]
       }
@@ -188,9 +188,21 @@
         "note": ""
       },
       {
+        "title": "Laptop",
+        "icon": "images/redwood-city/icons/all-devices.png",
+        "body": "Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiter know.",
+        "note": ""
+      },
+      {
         "title": "Arrival and departure",
         "body": "Please keep the printed QR code you received from the Varso Tower ground floor reception with you, as you may need it to exit through the gates on the ground floor.",
         "icon": "images/redwood-city/icons/strategy.png"
+      },
+      {
+        "title": "Wi-fi",
+        "icon": "images/redwood-city/icons/wifi.png",
+        "body": "After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password.",
+        "note": ""
       }
     ],
     "style": {
@@ -208,5 +220,40 @@
       "fontWeight": ""
     }
   },
-  "customSections": []
+  "customSections": [
+    {
+      "id": "cs-warsaw-lunch",
+      "navLabel": "Interviewing",
+      "heading": "During the interview",
+      "intro": "",
+      "blocks": [
+        {
+          "title": "Lunch",
+          "icon": "images/redwood-city/icons/mug-donut.png",
+          "paragraphs": [
+            {
+              "type": "html",
+              "html": "During the onsite interview panel, you will have a lunch break with the Hiring Manager or future team members. You will receive a 30 PLN lunch card for Salad Story or Meet &amp; Eat, both located on the main floor of the office building."
+            },
+            {
+              "type": "html",
+              "html": "If your order is more than 30 PLN, you will need to pay the remaining amount yourself."
+            }
+          ]
+        }
+      ],
+      "style": {
+        "color": "#212121",
+        "fontWeight": ""
+      }
+    }
+  ],
+  "sectionOrder": [
+    "address",
+    "transit",
+    "arrival",
+    "registration",
+    "custom:cs-warsaw-lunch",
+    "contact"
+  ]
 }
