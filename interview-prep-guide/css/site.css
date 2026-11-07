@@ -1336,6 +1336,25 @@ footer {
   --max-width: 1120px;
 }
 
+/* ── Type — Inter Display, tighter tracking, lighter section headings (all pages) ── */
+.page-index,
+.page-location {
+  letter-spacing: -0.02em;
+}
+
+/* Inter Display: pin Inter's optical size axis to its display end */
+.page-index,
+.page-index *,
+.page-location,
+.page-location * {
+  font-variation-settings: "opsz" 32;
+}
+
+.page-index section h2,
+.page-location section h2 {
+  font-weight: 600;
+}
+
 .page-index .about-grid {
   gap: 3.5rem;
 }
