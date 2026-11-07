@@ -188,21 +188,9 @@
         "note": ""
       },
       {
-        "title": "Laptop",
-        "icon": "images/redwood-city/icons/all-devices.png",
-        "body": "Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiter know.",
-        "note": ""
-      },
-      {
         "title": "Arrival and departure",
         "body": "Please keep the printed QR code you received from the Varso Tower ground floor reception with you, as you may need it to exit through the gates on the ground floor.",
         "icon": "images/redwood-city/icons/strategy.png"
-      },
-      {
-        "title": "Wi-fi",
-        "icon": "images/redwood-city/icons/wifi.png",
-        "body": "After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password.",
-        "note": ""
       }
     ],
     "style": {
@@ -228,12 +216,32 @@
       "intro": "",
       "blocks": [
         {
+          "title": "Laptop",
+          "icon": "images/redwood-city/icons/all-devices.png",
+          "paragraphs": [
+            {
+              "type": "html",
+              "html": "Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiter know."
+            }
+          ]
+        },
+        {
+          "title": "Wi-fi",
+          "icon": "images/redwood-city/icons/wifi.png",
+          "paragraphs": [
+            {
+              "type": "html",
+              "html": "After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password."
+            }
+          ]
+        },
+        {
           "title": "Lunch",
           "icon": "images/redwood-city/icons/mug-donut.png",
           "paragraphs": [
             {
               "type": "html",
-              "html": "During the onsite interview panel, you will have a lunch break with the Hiring Manager or future team members. You will receive a 30 PLN lunch card for Salad Story or Meet & Eat, both located on the main floor of the office building."
+              "html": "You'll have a lunch break with the Hiring Manager or future team members. You will receive a 30 PLN lunch card for Salad Story or Meet & Eat, both located on the main floor of the office building."
             },
             {
               "type": "html",
