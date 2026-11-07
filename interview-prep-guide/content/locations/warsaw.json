@@ -48,8 +48,8 @@
       {
         "icon": "🅿️",
         "title": "Varso Place underground parking",
-        "photoUrl": "images/warsaw/entrance.jpg",
-        "photoAlt": "Varso Place entrance and towers at dusk",
+        "photoUrl": "images/warsaw/parking-entrance.webp",
+        "photoAlt": "Street entrance to the Varso Place underground parking garage at Chmielna 71",
         "paragraphs": [
           {
             "type": "html",
@@ -81,20 +81,6 @@
         ]
       },
       {
-        "icon": "🅿️",
-        "title": "Private car park P-35",
-        "paragraphs": [
-          {
-            "type": "list",
-            "items": [
-              "Head to the main Varso entrance at the Chmielna/Jana Pawła II intersection (róg ul. Chmielnej i al. Jana Pawła II).",
-              "Use your QR code to access the elevators on the right of the main entrance, to the left of reception.",
-              "The QR code will direct you to Box Reception (recepcja Box) on the 22nd floor."
-            ]
-          }
-        ]
-      },
-      {
         "icon": "🚗",
         "title": "Street parking",
         "paragraphs": [
@@ -107,6 +93,8 @@
       {
         "icon": "🚇",
         "title": "Public transportation",
+        "photoUrl": "images/warsaw/entrance.jpg",
+        "photoAlt": "Varso Place entrance and towers at dusk",
         "paragraphs": [
           {
             "type": "html",
