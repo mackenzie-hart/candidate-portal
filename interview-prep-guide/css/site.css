@@ -48,14 +48,30 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-size: 16px;
+  background: #DFEBFE;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Gradient lives on a fixed, screen-sized layer instead of using
+   background-attachment: fixed, which iOS Safari and most mobile browsers
+   ignore — there the gradient got stretched across the whole (very tall)
+   page and looked like it had disappeared. */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100lvh;
+  z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(circle at 85% 90%, #C7DCFC 0%, transparent 55%),
     radial-gradient(circle at 8% 45%, #F3D9EE 0%, transparent 45%),
     radial-gradient(circle at 50% 5%, #FFFFFF 0%, transparent 50%),
     #DFEBFE;
-  background-attachment: fixed;
-  color: var(--text);
-  line-height: 1.6;
 }
 
 h1, h2, h3, .section-label, .site-bar .logo, .btn {
