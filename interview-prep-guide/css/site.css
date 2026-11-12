@@ -27,7 +27,7 @@
   --body-text: #3F4448;
   --border: #D0D0D0;
 
-  /* Body copy size — every paragraph/list/lead rule uses this */
+  /* Body copy and small heading size — paragraph/list/lead rules and card/step/FAQ titles use this */
   --body-size: 18px;
 
   /* Semantic tints */
@@ -609,7 +609,7 @@ section h2 {
   border-radius: 6px;
 }
 
-.resource-card h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--brand-navy); }
+.resource-card h3 { font-size: var(--body-size); font-weight: 600; margin-bottom: 0.3rem; color: var(--brand-navy); }
 .resource-card p { font-size: var(--body-size); color: var(--muted); margin-bottom: 0.6rem; }
 .resource-card .link-hint { font-size: 0.82rem; font-weight: 600; color: #2586fc; }
 
@@ -711,7 +711,7 @@ section h2 {
   margin-bottom: 0.6rem;
 }
 
-.prep-step h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0; }
+.prep-step h3 { font-size: var(--body-size); font-weight: 600; margin-bottom: 0; }
 .prep-step-header h3 { margin-bottom: 0; }
 .prep-step p, .prep-step .rich-body { font-size: var(--body-size); color: var(--muted); }
 
@@ -741,7 +741,7 @@ section[id^="custom-"] .card.tip-card {
   height: 100%;
 }
 
-.tip-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; width: 100%; text-align: center; }
+.tip-card h3 { font-size: var(--body-size); font-weight: 700; margin-bottom: 0.35rem; width: 100%; text-align: center; }
 .tip-card p,
 .tip-card .tip-body,
 .tip-card .tip-body p {
@@ -808,7 +808,7 @@ section[id^="custom-"] .card.tip-card {
 }
 
 .location-item h3 {
-  font-size: 0.95rem;
+  font-size: var(--body-size);
   font-weight: 700;
   margin-top: 0.75rem;
 }
@@ -854,7 +854,7 @@ section[id^="custom-"] .card.tip-card {
 .info-block.no-icon { grid-template-columns: 1fr; }
 
 .info-block .info-icon { font-size: 1.25rem; line-height: 1.4; }
-.info-block h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+.info-block h3 { font-size: var(--body-size); font-weight: 700; margin-bottom: 0.25rem; }
 .info-block p, .info-block ul { font-size: var(--body-size); color: var(--muted); }
 .info-block ul { margin: 0.35rem 0 0 1.1rem; }
 .info-block li { margin-bottom: 0.25rem; }
@@ -1038,7 +1038,7 @@ section[id^="custom-"] .card.tip-card {
   gap: 1rem;
   list-style: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--body-size);
   font-weight: 700;
   padding: 0.5rem 0;
 }
@@ -1277,7 +1277,7 @@ footer {
 }
 
 .page-location .step-title h3 {
-  font-size: 1.0625rem;
+  font-size: var(--body-size);
   font-weight: 600;
 }
 
