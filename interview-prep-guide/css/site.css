@@ -27,6 +27,9 @@
   --body-text: #3F4448;
   --border: #D0D0D0;
 
+  /* Body copy size — every paragraph/list/lead rule uses this */
+  --body-size: 18px;
+
   /* Semantic tints */
   --success-bg: #E8FAF3;
   --success-border: #24C17F;
@@ -47,7 +50,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--body-size);
   background: #DFEBFE;
   color: var(--text);
   line-height: 1.6;
@@ -185,7 +188,7 @@ a:hover { color: var(--brand-navy); }
 }
 
 .hero.hero-single .lead {
-  font-size: 16px;
+  font-size: var(--body-size);
   font-weight: 400;
   opacity: 1;
   color: var(--muted);
@@ -281,7 +284,7 @@ a:hover { color: var(--brand-navy); }
 }
 
 .hero-text .lead {
-  font-size: 16px;
+  font-size: var(--body-size);
   opacity: 0.94;
   max-width: 32rem;
 }
@@ -607,7 +610,7 @@ section h2 {
 }
 
 .resource-card h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--brand-navy); }
-.resource-card p { font-size: 16px; color: var(--muted); margin-bottom: 0.6rem; }
+.resource-card p { font-size: var(--body-size); color: var(--muted); margin-bottom: 0.6rem; }
 .resource-card .link-hint { font-size: 0.82rem; font-weight: 600; color: #2586fc; }
 
 /* ── About us ── */
@@ -710,7 +713,7 @@ section h2 {
 
 .prep-step h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0; }
 .prep-step-header h3 { margin-bottom: 0; }
-.prep-step p, .prep-step .rich-body { font-size: 16px; color: var(--muted); }
+.prep-step p, .prep-step .rich-body { font-size: var(--body-size); color: var(--muted); }
 
 /* ── Two-col tips ── */
 .tips-grid {
@@ -742,7 +745,7 @@ section[id^="custom-"] .card.tip-card {
 .tip-card p,
 .tip-card .tip-body,
 .tip-card .tip-body p {
-  font-size: 16px;
+  font-size: var(--body-size);
   color: var(--muted);
   width: 100%;
   text-align: center;
@@ -750,7 +753,7 @@ section[id^="custom-"] .card.tip-card {
 
 .tip-card-note {
   margin-top: 0.5rem;
-  font-size: 16px;
+  font-size: var(--body-size);
   color: var(--muted);
   width: 100%;
   text-align: center;
@@ -852,7 +855,7 @@ section[id^="custom-"] .card.tip-card {
 
 .info-block .info-icon { font-size: 1.25rem; line-height: 1.4; }
 .info-block h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
-.info-block p, .info-block ul { font-size: 16px; color: var(--muted); }
+.info-block p, .info-block ul { font-size: var(--body-size); color: var(--muted); }
 .info-block ul { margin: 0.35rem 0 0 1.1rem; }
 .info-block li { margin-bottom: 0.25rem; }
 
@@ -869,12 +872,12 @@ section[id^="custom-"] .card.tip-card {
 
 .address-card .address-note {
   margin-top: 0.85rem;
-  font-size: 16px;
+  font-size: var(--body-size);
   color: var(--muted);
 }
 
 .address-card .address-note strong {
-  font-size: 16px;
+  font-size: var(--body-size);
   font-weight: 700;
   color: inherit;
 }
@@ -920,7 +923,7 @@ section[id^="custom-"] .card.tip-card {
 }
 
 .section-copy {
-  font-size: 16px;
+  font-size: var(--body-size);
   color: var(--muted);
   line-height: 1.65;
 }
@@ -986,7 +989,7 @@ section[id^="custom-"] .card.tip-card {
 }
 
 .step-body p {
-  font-size: 16px;
+  font-size: var(--body-size);
   font-weight: 400;
   color: var(--muted);
   margin-bottom: 0.75rem;
@@ -1000,7 +1003,7 @@ section[id^="custom-"] .card.tip-card {
   padding: 0;
 }
 
-.step-body li { font-size: 16px; color: var(--muted); margin-bottom: 0.35rem; }
+.step-body li { font-size: var(--body-size); color: var(--muted); margin-bottom: 0.35rem; }
 .step-body li:last-child { margin-bottom: 0; }
 
 .step-photo {
@@ -1053,7 +1056,7 @@ section[id^="custom-"] .card.tip-card {
 
 .faq-item[open] summary::after { transform: rotate(45deg); }
 
-.faq-item p { font-size: 16px; color: var(--muted); margin-top: 0.4rem; }
+.faq-item p { font-size: var(--body-size); color: var(--muted); margin-top: 0.4rem; }
 
 /* ── Contact ── */
 section#contact {
@@ -1094,7 +1097,7 @@ section#contact .btn {
   gap: 1rem;
 }
 
-.contact-bar p { font-size: 16px; color: var(--muted); }
+.contact-bar p { font-size: var(--body-size); color: var(--muted); }
 .contact-bar strong { color: var(--text); }
 
 .btn {
@@ -1413,7 +1416,7 @@ footer {
 .page-index .prep-step p,
 .page-index .prep-step .rich-body,
 .page-index .faq-item p {
-  font-size: 16px;
+  font-size: var(--body-size);
   color: var(--body-text);
 }
 
