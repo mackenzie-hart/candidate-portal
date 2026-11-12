@@ -488,6 +488,40 @@ a:hover { color: var(--brand-navy); }
   gap: var(--nav-gap);
 }
 
+/* Above phone width, reserve a column for the back link so the section links
+   stay centered when there's room and slide right (then wrap) instead of
+   running underneath it on narrower screens. */
+@media (min-width: 721px) {
+  .page-location .page-nav-inner {
+    display: grid;
+    grid-template-columns: minmax(max-content, 1fr) minmax(0, auto) minmax(0, 1fr);
+    column-gap: 1.5rem;
+  }
+
+  .page-location .page-nav-back {
+    position: static;
+    transform: none;
+    justify-self: start;
+  }
+
+  .page-location .page-nav-links {
+    min-width: 0;
+  }
+}
+
+/* Tablet / small laptop: shrink the back link to just its arrow so the
+   section links still fit on one row. The text stays for screen readers. */
+@media (min-width: 721px) and (max-width: 1023px) {
+  .page-location .back-link-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
 /* ── Main ── */
 main {
   max-width: var(--max-width);
@@ -1160,9 +1194,10 @@ footer {
   justify-content: flex-end;
   gap: 1.35rem;
   list-style: none;
-  margin: 0 -1.25rem 0 0;
+  margin: 0 -0.5rem 0 0;
   padding: 0;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .site-footer-socials a {
@@ -1295,10 +1330,15 @@ footer {
 
 .page-location .site-footer,
 .page-index .site-footer {
-  padding: 2rem 0.25rem 2.25rem 2rem;
+  padding: 2rem 2rem 2.25rem;
 }
 
 @media (max-width: 720px) {
+  .page-location .site-footer,
+  .page-index .site-footer {
+    padding-right: 0.25rem;
+  }
+
   .site-footer-inner {
     flex-direction: row;
     align-items: center;
