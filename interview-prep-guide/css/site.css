@@ -1274,7 +1274,9 @@ footer {
 
 .page-location .hero.hero-single.hero-xl .hero-inner {
   gap: 2.5rem;
-  grid-template-columns: 1fr 594px;
+  /* Photo is 594px when there's room, and narrows (cropping a bit more) on
+     tablet widths instead of pushing past the screen edge. */
+  grid-template-columns: minmax(max-content, 1fr) minmax(0, 594px);
 }
 
 @media (max-width: 720px) {
