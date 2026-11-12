@@ -136,12 +136,6 @@
         "icon": "images/redwood-city/icons/all-devices.png",
         "body": "Please bring a laptop if you are completing a technical assessment or presentation. If you need to borrow one, please let your Recruiter and Recruiting Coordinator know.",
         "note": ""
-      },
-      {
-        "title": "Wi-fi",
-        "icon": "images/redwood-city/icons/wifi.png",
-        "body": "After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password.",
-        "note": ""
       }
     ],
     "style": {
@@ -177,12 +171,12 @@
           ]
         },
         {
-          "title": "Taking a break",
-          "icon": "images/redwood-city/icons/question.png",
+          "title": "Wi-fi",
+          "icon": "images/redwood-city/icons/wifi.png",
           "paragraphs": [
             {
               "type": "html",
-              "html": "Please do not hesitate to ask an interviewer for a restroom break or a refreshment from the kitchen between interviews. We want you at your best!"
+              "html": "After signing in at the front desk, you will receive an email from Envoy that contains your personalized Wi-fi password. Choose the “Box Visitor” Wi-fi network, then sign in with the email you used to check in and your personalized password."
             }
           ]
         },

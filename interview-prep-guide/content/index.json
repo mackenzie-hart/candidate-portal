@@ -257,13 +257,18 @@
       },
       {
         "name": "X (Twitter)",
-        "url": "https://twitter.com/BoxHQ",
+        "url": "https://x.com/box",
         "icon": "twitter"
       },
       {
         "name": "Facebook",
         "url": "https://www.facebook.com/box",
         "icon": "facebook"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/company/box/",
+        "icon": "linkedin"
       }
     ]
   },
